@@ -1,0 +1,3395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKIGAI Spa Center | Nơi Đánh Thức Mọi Giác Quan Tại Đà Nẵng</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ======= BIẾN MÀU SẮC (IKIGAI LUXURY THEME) ======= */
+        :root {
+            --bg-body: #2C1E16;         /* Nâu cafe cực đậm (Nền chính) */
+            --bg-header: #1A100B;       /* Nâu đen mờ (Header & Footer) */
+            --bg-card: #3D2B1F;         /* Nâu sáng hơn cho các box/card */
+            --gold-primary: #D4AF37;    /* Vàng ánh kim sang trọng */
+            --gold-light: #F3E5AB;      /* Vàng kem nhẹ (Highlight) */
+            --gold-gradient: linear-gradient(135deg, #C79A5C 0%, #F3E5AB 50%, #C79A5C 100%);
+            --text-white: #FFFFFF;
+            --text-gray: #B0A8A4;       /* Xám pha nâu ấm đọc dịu mắt */
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --overlay-dark: rgba(26, 16, 11, 0.85);
+        }
+
+        /* ============ RESET & GLOBAL TYPOGRAPHY ============ */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html { 
+            scroll-behavior: smooth; 
+        }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--text-white); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; /* Tối ưu text trên màn hình Mac/Retina */
+        }
+        
+        h1, h2, h3, h4, .serif-font { 
+            font-family: 'Playfair Display', serif; 
+        }
+        
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.4s ease; 
+        }
+        
+        ul { 
+            list-style: none; 
+        }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            object-fit: cover; 
+        }
+        
+        .container { 
+            max-width: 1350px; 
+            margin: 0 auto; 
+            padding: 0 5%; 
+        }
+
+        /* ====== HỆ THỐNG NÚT BẤM (BUTTONS) ====== */
+        .btn-gold {
+            display: inline-block; 
+            padding: 14px 35px;
+            background: var(--gold-gradient); 
+            color: #1A100B;
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700; 
+            font-size: 13px;
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer;
+            transition: all 0.4s ease; 
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-gold::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg); transition: 0.5s;
+        }
+        
+        .btn-gold:hover::after { left: 150%; }
+        .btn-gold:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4); 
+            color: #000; 
+        }
+        
+        .btn-outline {
+            display: inline-block; 
+            padding: 14px 35px;
+            background: transparent; 
+            color: var(--gold-light);
+            border: 1px solid var(--gold-primary);
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 600; 
+            font-size: 13px;
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            border-radius: 4px; 
+            cursor: pointer; 
+            transition: all 0.4s ease;
+        }
+        
+        .btn-outline:hover { 
+            background: var(--gold-gradient); 
+            color: #1A100B; 
+            border-color: transparent; 
+        }
+
+        /* ========================================== */
+        /* ============== 1. TOP BAR CSS ============ */
+        /* ========================================== */
+        .top-bar {
+            background-color: var(--bg-header); 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 10px 0; 
+            font-size: 12px; 
+            font-weight: 500; 
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .top-bar .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .tb-left { 
+            display: flex; 
+            gap: 30px; 
+            color: var(--text-gray);
+            flex-wrap: wrap;
+            justify-content: flex-start; 
+        }
+        
+        .tb-left span { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        
+        .tb-left i { 
+            color: var(--gold-primary); 
+            font-style: normal; 
+            font-size: 14px;
+        }
+        
+        .tb-right { 
+            display: flex; 
+            gap: 20px; 
+            align-items: center; 
+        }
+        
+        /* Bộ chuyển đổi ngôn ngữ - Với Cờ */
+        .lang-switch { 
+            display: flex; 
+            gap: 6px; 
+            background: rgba(255,255,255,0.08);
+            padding: 6px 2px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(8px);
+        }
+        
+        .lang-switch span { 
+            cursor: pointer; 
+            color: var(--text-gray); 
+            transition: all 0.3s ease; 
+            padding: 6px 12px; 
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        
+        .lang-switch span::before {
+            font-size: 16px;
+            display: inline-block;
+        }
+        
+        .lang-switch span.active, .lang-switch span:hover { 
+            color: #1A100B; 
+            background: var(--gold-gradient); 
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 480px) {
+            .lang-switch span {
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+            .lang-switch span::before {
+                font-size: 14px;
+            }
+        }
+
+        /* ========================================== */
+        /* ================ 2. HEADER CSS =========== */
+        /* ========================================== */
+        header {
+            background-color: rgba(26, 16, 11, 0.95); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px); /* Tối ưu hiệu ứng kính cho Safari */
+            padding: 20px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        header .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        /* Cụm Logo */
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        
+        .logo-icon {
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            object-fit: contain;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .logo-text { 
+            display: flex; 
+            flex-direction: column; 
+            line-height: 1.1; 
+        }
+        
+        .logo-text span { 
+            font-size: 28px; 
+            color: var(--text-white); 
+            letter-spacing: 3px; 
+            font-weight: 500; 
+        }
+        
+        .logo-text small { 
+            font-size: 10px; 
+            color: var(--gold-primary); 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            font-weight: 300; 
+            margin-top: 5px; 
+        }
+        
+        /* Menu Điều Hướng */
+        nav ul { 
+            display: flex; 
+            gap: 35px; 
+        }
+        
+        nav ul li a { 
+            font-size: 13px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            color: var(--text-white); 
+            letter-spacing: 1.5px; 
+            position: relative; 
+            padding-bottom: 5px; 
+        }
+        
+        nav ul li a::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 0; 
+            height: 2px;
+            background: var(--gold-gradient); 
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after, nav ul li a.active::after { 
+            width: 100%; 
+        }
+        
+        nav ul li a:hover, nav ul li a.active { 
+            color: var(--gold-light); 
+        }
+
+        /* Đáp ứng màn hình nhỏ cho phần Header */
+        @media (max-width: 1024px) {
+            nav ul { gap: 20px; }
+            .tb-left span:last-child { display: none; }
+        }
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; gap: 20px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            
+            /* Top bar responsive */
+            .top-bar {
+                padding: 8px 0;
+                font-size: 11px;
+            }
+            .top-bar .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .tb-left {
+                gap: 12px;
+                width: 100%;
+                justify-content: space-around;
+                font-size: 10px;
+            }
+            .tb-left span {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .tb-left span:last-child {
+                display: flex !important;
+            }
+            .tb-right {
+                width: 100%;
+                justify-content: center;
+            }
+            .lang-switch {
+                gap: 6px;
+                padding: 3px;
+            }
+            .lang-switch span {
+                padding: 3px 8px;
+                font-size: 10px;
+                font-weight: 700;
+            }
+        }
+        @media (max-width: 480px) {
+            .top-bar {
+                padding: 6px 0;
+                font-size: 9px;
+            }
+            .tb-left {
+                gap: 8px;
+            }
+            .tb-left span {
+                gap: 4px;
+            }
+            .tb-left i {
+                font-size: 12px;
+            }
+            .lang-switch span {
+                padding: 2px 6px;
+                font-size: 8px;
+            }
+        }
+        /* ========================================== */
+        /* ============== 3. HERO BANNER CSS ======== */
+        /* ========================================== */
+        .hero-section { 
+            margin: 50px auto 80px; 
+            padding: 0 5%; 
+            max-width: 1450px; 
+            display: grid; 
+            grid-template-columns: 1.2fr 2fr; 
+            gap: 30px; 
+        }
+        
+        /* Cột Trái: Box Thông Tin */
+        .hero-info {
+            background-color: var(--bg-card); 
+            padding: 60px 40px; 
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.03); 
+            position: relative; 
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .hero-info::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 4px; 
+            height: 100%; 
+            background: var(--gold-gradient);
+        }
+        
+        .hero-title { 
+            font-size: 42px; 
+            color: var(--gold-light); 
+            line-height: 1.2; 
+            margin-bottom: 20px; 
+            letter-spacing: 1px;
+        }
+        
+        .hero-desc { 
+            font-size: 19px; 
+            color: var(--text-gray); 
+            margin-bottom: 35px; 
+            line-height: 1.8; 
+        }
+        
+        .hero-services { 
+            margin-bottom: 40px; 
+        }
+        
+        .hero-services li { 
+            font-size: 14px; 
+            margin-bottom: 18px; 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+            font-weight: 500; 
+            color: var(--text-white);
+        }
+        
+        .hero-services li i { 
+            color: var(--gold-primary); 
+            font-size: 16px; 
+            font-style: normal; 
+            margin-top: 2px;
+        }
+        
+        .hero-contact { 
+            margin-top: 35px; 
+            padding-top: 35px; 
+            border-top: 1px dashed rgba(212, 175, 55, 0.3); 
+        }
+        
+        .hero-contact p { 
+            font-size: 17px; 
+            color: var(--text-gray); 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+        }
+        
+        .hero-contact strong { 
+            color: var(--gold-light); 
+            font-weight: 600; 
+            letter-spacing: 1px; 
+            min-width: 85px;
+        }
+        
+        .hero-contact a { 
+            color: var(--text-white); 
+            transition: 0.3s; 
+            font-weight: 500;
+        }
+        
+        .hero-contact a:hover { 
+            color: var(--gold-primary); 
+            padding-left: 5px;
+        }
+
+        /* Cột Phải: Grid 3 Ảnh Hero */
+        .hero-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+        }
+        
+        .hg-item { 
+            border-radius: 6px; 
+            overflow: hidden; 
+            height: 650px; 
+            position: relative; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .hg-item img { 
+            width: 100%; 
+            height: 100%; 
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        
+        .hg-item:hover img { 
+            transform: scale(1.08); 
+        }
+        
+        .hg-item::after {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.85) 100%); 
+            pointer-events: none;
+        }
+        
+        .hg-label { 
+            position: absolute; 
+            bottom: 25px; 
+            left: 20px; 
+            right: 20px; 
+            color: var(--text-white); 
+            font-size: 20px; 
+            z-index: 2; 
+            letter-spacing: 1px; 
+            line-height: 1.3; 
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* Responsive cho Hero Banner */
+        @media (max-width: 1200px) {
+            .hero-section { grid-template-columns: 1fr; }
+            .hero-gallery { height: 480px; }
+            .hg-item { height: 100%; }
+        }
+        @media (max-width: 768px) {
+            .hero-gallery { grid-template-columns: 1fr; height: auto; gap: 20px;}
+            .hg-item { height: 400px; }
+            .hero-title { font-size: 32px; }
+            .hero-info { padding: 40px 25px; }
+        }
+
+        /* ========================================== */
+        /* ======== 4. CÂU CHUYỆN (STORY) CSS ======= */
+        /* ========================================== */
+        .story-section {
+            padding: 100px 5% 120px;
+            background-color: var(--bg-body);
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .story-container {
+            max-width: 1350px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Bên Trái: Triết lý & Cảm hứng */
+        .story-quote-box {
+            position: relative;
+        }
+        
+        .story-quote-box .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 140px;
+            color: var(--gold-primary);
+            line-height: 0.5;
+            opacity: 0.15;
+            position: absolute;
+            top: -30px;
+            left: -40px;
+            z-index: 0;
+            user-select: none;
+        }
+        
+        .story-main-heading {
+            font-size: 52px;
+            color: var(--gold-light);
+            line-height: 1.2;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            text-transform: capitalize;
+        }
+        
+        .story-sub-heading {
+            font-size: 14px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .story-highlight {
+            font-size: 18px;
+            color: var(--text-white);
+            font-style: italic;
+            line-height: 1.8;
+            border-left: 3px solid var(--gold-primary);
+            padding-left: 25px;
+            margin-top: 40px;
+            font-weight: 300;
+        }
+
+        /* Bên Phải: Nội dung chi tiết & Hình ảnh */
+        .story-content-box {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        
+        .story-text {
+            font-size: 19px;
+            color: var(--text-gray);
+            line-height: 2;
+            text-align: justify;
+        }
+        
+        .story-text strong {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* Lưới 2 ảnh nghệ thuật so le */
+        .story-images {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .story-img-wrap {
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .story-img-wrap.img-tall { 
+            height: 450px; 
+        }
+        
+        .story-img-wrap.img-short { 
+            height: 320px; 
+            margin-top: auto; /* Ép ảnh ngắn xuống đáy để tạo so le */
+        } 
+        
+        .story-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .story-img-wrap:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Responsive cho Story Section */
+        @media (max-width: 1024px) {
+            .story-container { grid-template-columns: 1fr; gap: 60px; }
+            .story-main-heading { font-size: 42px; }
+            .story-quote-box .quote-mark { left: -10px; }
+        }
+        @media (max-width: 768px) {
+            .story-images { grid-template-columns: 1fr; gap: 15px;}
+            .story-img-wrap.img-tall, .story-img-wrap.img-short { height: 350px; }
+            .story-main-heading { font-size: 34px; }
+        }
+        /* ========================================== */
+        /* ======== 5. VIDEO CINEMATIC CSS ========== */
+        /* ========================================== */
+        .video-intro-section {
+            padding: 60px 5% 100px;
+            background-color: var(--bg-body);
+            text-align: center;
+        }
+        
+        .video-title-wrap {
+            margin-bottom: 50px;
+        }
+        
+        .video-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid var(--border-gold);
+            padding: 15px; /* Tạo viền bao quanh video như khung tranh */
+            background-color: var(--bg-header);
+            border-radius: 8px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            transition: transform 0.5s ease;
+        }
+        
+        .video-wrapper:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Công thức chuẩn cho Tỉ lệ 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            background-color: #000;
+        }
+        
+        .video-container iframe, 
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ========================================== */
+        /* ====== 6. LƯỚI 16 Ô DỊCH VỤ (GRID) CSS === */
+        /* ========================================== */
+        .services-grid-section {
+            padding: 100px 5% 120px;
+            background-color: var(--bg-header); /* Nền tối hơn tạo chiều sâu phân tách */
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+        
+        .grid-header-wrapper { 
+            text-align: center; 
+            margin-bottom: 70px; 
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .grid-subtitle {
+            color: var(--gold-primary); 
+            font-size: 14px; 
+            font-weight: 700;
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            margin-bottom: 18px;
+            display: block; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .grid-main-title {
+            color: var(--gold-light); 
+            font-size: 42px; 
+            letter-spacing: 2px;
+            margin-bottom: 25px; 
+            line-height: 1.3;
+        }
+        
+        .grid-desc {
+            color: var(--text-gray); 
+            font-size: 19px;
+            margin: 0 auto; 
+            line-height: 1.8;
+        }
+
+        /* Ma trận Grid 4x4 (Desktop) */
+        .service-matrix {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .matrix-item {
+            position: relative;
+            aspect-ratio: 1 / 1; /* Cố định ảnh luôn luôn vuông (Tỉ lệ 1:1) */
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border: 1px solid rgba(212, 175, 55, 0.05);
+        }
+        
+        .matrix-item img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .matrix-item:hover img { 
+            transform: scale(1.12); 
+        }
+        
+        /* Hiệu ứng mờ dần (Gradient Overlay) dưới chân ảnh để nổi bật chữ */
+        .matrix-item::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 60%;
+            background: linear-gradient(to top, rgba(26, 16, 11, 0.95) 0%, rgba(26, 16, 11, 0) 100%);
+            pointer-events: none; 
+            transition: height 0.4s ease;
+        }
+        
+        .matrix-item:hover::after { 
+            height: 80%; 
+            background: linear-gradient(to top, rgba(26, 16, 11, 0.98) 0%, rgba(26, 16, 11, 0) 100%); 
+        }
+
+        /* Tiêu đề dịch vụ nằm đè lên ảnh */
+        .matrix-title {
+            position: absolute; 
+            bottom: 20px; 
+            left: 15px; 
+            right: 15px; 
+            z-index: 2;
+            text-align: center; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; 
+            font-weight: 700; 
+            color: var(--gold-primary);
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            line-height: 1.5;
+            transition: color 0.4s ease, transform 0.4s ease;
+        }
+        
+        .matrix-item:hover .matrix-title { 
+            color: var(--gold-light); 
+            transform: translateY(-5px); /* Chữ nhô nhẹ lên khi hover */
+        }
+
+        /* Responsive cho Ma trận Dịch vụ */
+        @media (max-width: 1200px) {
+            .service-matrix { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+            .grid-main-title { font-size: 36px; }
+        }
+        @media (max-width: 768px) {
+            .service-matrix { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .grid-main-title { font-size: 28px; }
+            .grid-desc { font-size: 14px; }
+            .video-wrapper { padding: 8px; }
+            .services-grid-section { padding: 60px 5% 80px; }
+            .grid-header-wrapper { margin-bottom: 50px; }
+        }
+        @media (max-width: 480px) {
+            .service-matrix { grid-template-columns: 1fr; gap: 8px; }
+            .matrix-title { font-size: 11px; bottom: 15px; letter-spacing: 1px; }
+            .services-grid-section { padding: 40px 3% 60px; }
+            .grid-subtitle { font-size: 12px; letter-spacing: 3px; }
+            .grid-main-title { font-size: 22px; }
+            .grid-desc { font-size: 13px; }
+        }
+        /* ========================================== */
+        /* ======== 7. BẢNG GIÁ MENU (TABS) CSS ===== */
+        /* ========================================== */
+        .menu-pricing-section {
+            padding: 100px 5%;
+            background-color: var(--bg-body);
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+        
+        .menu-pricing-section::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0.2;
+        }
+
+        .menu-header { 
+            text-align: center; 
+            margin-bottom: 60px; 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Thanh Menu Tabs (Chuyển đổi các bảng giá) */
+        .tabs-nav {
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .tab-btn {
+            padding: 15px 35px; 
+            background-color: var(--bg-header);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            font-family: 'Playfair Display', serif; 
+            font-size: 16px; 
+            font-weight: 600;
+            color: var(--text-gray); 
+            cursor: pointer; 
+            transition: all 0.4s ease;
+            border-radius: 4px; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn:hover { 
+            border-color: var(--gold-primary); 
+            color: var(--gold-light); 
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+        }
+        
+        .tab-btn.active {
+            background: var(--gold-gradient); 
+            color: #1A100B;
+            border-color: transparent; 
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            font-weight: 700;
+        }
+
+        /* Nội dung Tabs (Các bảng giá) */
+        .tab-content { 
+            display: none; 
+            max-width: 1250px; 
+            margin: 0 auto; 
+            animation: fadeInTab 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        
+        .tab-content.active { 
+            display: block; 
+        }
+        
+        @keyframes fadeInTab { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* Bao bọc bảng để có thể scroll ngang trên điện thoại */
+        .table-responsive { 
+            width: 100%; 
+            overflow-x: auto; 
+            border-radius: 6px; 
+            border: 1px solid var(--border-gold); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background-color: var(--bg-card);
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            position: relative;
+        }
+        
+        .table-responsive::-webkit-scrollbar { display: none; }
+        
+        /* Swipe hint cho mobile */
+        .table-responsive::after {
+            content: '👉 Lướt sang phải để xem giá';
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            background: rgba(212, 175, 55, 0.9);
+            color: #1A100B;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: none;
+            animation: slideHint 2s ease-in-out infinite;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        @keyframes slideHint {
+            0%, 100% { transform: translateX(0); opacity: 1; }
+            50% { transform: translateX(8px); opacity: 0.8; }
+        }
+        
+        @media (max-width: 768px) {
+            .table-responsive::after {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .table-responsive::after {
+                font-size: 11px;
+                padding: 6px 10px;
+                bottom: 8px;
+                right: 10px;
+                content: '👉 Lướt phải xem giá';
+            }
+        }
+        
+        /* CSS cho Table chính */
+        .pricing-table {
+            width: 100%; 
+            border-collapse: collapse; 
+            text-align: left;
+            min-width: 850px; /* Ép bảng có độ rộng tối thiểu để không bị nát layout */
+        }
+        
+        .pricing-table th {
+            background-color: #110A07; /* Đen tuyền cho Header bảng */
+            color: var(--gold-primary);
+            padding: 22px 20px; 
+            font-size: 14px; 
+            text-transform: uppercase;
+            letter-spacing: 1.5px; 
+            font-weight: 700; 
+            border-bottom: 2px solid var(--border-gold);
+            font-family: 'Montserrat', sans-serif; 
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.03);
+            white-space: nowrap;
+        }
+        
+        .pricing-table th:last-child { border-right: none; }
+        
+        .pricing-table td {
+            padding: 18px 16px; 
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            vertical-align: middle; 
+            transition: background 0.3s ease;
+            border-right: 1px solid rgba(255,255,255,0.03);
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-table td {
+                padding: 14px 12px;
+                font-size: 13px;
+            }
+            .pricing-table th {
+                font-size: 12px;
+                padding: 14px 12px;
+            }
+        }
+        
+        .pricing-table td:last-child { border-right: none; }
+        .pricing-table tr:last-child td { border-bottom: none; }
+        
+        /* Hiệu ứng sáng dòng khi khách hàng dò giá */
+        .pricing-table tr:hover td { 
+            background-color: rgba(212, 175, 55, 0.05); 
+        }
+
+        /* Các class căn lề đặc biệt trong bảng */
+        .td-left { text-align: left !important; }
+        .td-center { text-align: center !important; }
+        
+        /* Định dạng Typography bên trong Bảng Giá */
+        .srv-no { 
+            font-weight: 700; 
+            color: rgba(255,255,255,0.2); 
+            font-size: 18px; 
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .srv-name {
+            display: block; 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px; 
+            font-weight: 700; 
+            color: var(--gold-light);
+            margin-bottom: 6px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
+        
+        .srv-desc { 
+            display: block; 
+            font-size: 16px; 
+            color: var(--text-gray); 
+            line-height: 1.6; 
+            text-transform: uppercase; 
+            font-weight: 400;
+        }
+        
+        .srv-time { 
+            font-size: 15px; 
+            font-weight: 600; 
+            color: var(--text-white); 
+            line-height: 2;
+        }
+        
+        .srv-price { 
+            font-size: 17px; 
+            font-weight: 700; 
+            color: var(--gold-primary); 
+            display: block; 
+            line-height: 2; 
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+        
+        .srv-price span { 
+            font-size: 13px; 
+            font-weight: 500; 
+            color: var(--text-gray); 
+            margin-left: 5px; 
+        }
+
+        /* Ghi chú dưới bảng (Tip Included) */
+        .menu-note {
+            margin-top: 25px; 
+            background-color: rgba(212, 175, 55, 0.03);
+            padding: 20px; 
+            border-left: 3px solid var(--gold-primary); 
+            border-radius: 0 4px 4px 0;
+            text-align: center;
+        }
+        
+        .menu-note p { 
+            font-size: 15px; 
+            color: var(--gold-light); 
+            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            text-transform: uppercase; 
+        }
+
+        /* Responsive cho Bảng Giá */
+        @media (max-width: 1024px) {
+            .tab-btn { padding: 12px 25px; font-size: 14px; }
+        }
+        @media (max-width: 768px) {
+            .tab-btn { padding: 10px 15px; font-size: 12px; flex-grow: 1; text-align: center;}
+            .pricing-table th { font-size: 12px; padding: 15px 10px; }
+            .pricing-table td { padding: 15px 10px; }
+            .srv-name { font-size: 14px; }
+            .srv-price { font-size: 15px; }
+        }
+        /* ========================================== */
+        /* ======== 8. BEST SELLERS (3 CARDS) CSS === */
+        /* ========================================== */
+        .bestseller-section {
+            padding: 100px 5% 120px;
+            background-color: var(--bg-header); /* Nền tối để làm nổi bật 3 thẻ vàng */
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            overflow: hidden;
+        }
+        
+        .bestseller-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 60%; height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .bs-header { 
+            text-align: center; 
+            margin-bottom: 80px; 
+            max-width: 850px; 
+            margin-left: auto; 
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .bs-desc {
+            color: var(--text-gray); 
+            font-size: 19px;
+            margin: 0 auto; 
+            line-height: 1.8;
+        }
+
+        /* Lưới chứa 3 thẻ */
+        .bs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            max-width: 1250px;
+            margin: 0 auto;
+            align-items: center; /* Giúp thẻ giữa có thể phình to ra mà vẫn cân đối */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CSS Chung cho Thẻ (Card) */
+        .bs-card {
+            background-color: var(--bg-body);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            padding: 50px 35px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            z-index: 1;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .bs-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+            z-index: 3;
+        }
+
+        /* Hiệu ứng thanh ánh sáng viền chớp nhoáng khi hover */
+        .bs-card::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 3px;
+            background: var(--gold-gradient); 
+            transform: scaleX(0);
+            transition: transform 0.5s ease; 
+            border-radius: 8px 8px 0 0;
+            transform-origin: center;
+        }
+        
+        .bs-card:hover::before { 
+            transform: scaleX(1); 
+        }
+
+        /* THẺ Ở GIỮA (NỔI BẬT NHẤT - BEST SELLER) */
+        .bs-card.popular {
+            background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-body) 100%);
+            border-color: var(--gold-primary);
+            transform: scale(1.06);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+        
+        .bs-card.popular:hover { 
+            transform: scale(1.06) translateY(-10px); 
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.25);
+        }
+
+        .bs-badge {
+            position: absolute; 
+            top: -18px; 
+            left: 50%; 
+            transform: translateX(-50%);
+            background: var(--gold-gradient); 
+            color: #1A100B;
+            padding: 8px 25px; 
+            border-radius: 30px; 
+            font-size: 12px;
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 2.5px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            white-space: nowrap;
+        }
+
+        /* Typography bên trong Thẻ */
+        .bs-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px; 
+            color: var(--gold-light);
+            text-align: center; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px; 
+            line-height: 1.3;
+        }
+        
+        .bs-time {
+            text-align: center; 
+            color: var(--gold-primary);
+            font-size: 14px; 
+            font-weight: 600; 
+            margin-bottom: 25px;
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 8px;
+        }
+        
+        /* Khu vực hiển thị Giá */
+        .bs-price {
+            text-align: center; 
+            margin-bottom: 35px;
+            padding-bottom: 35px; 
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .bs-price .amount {
+            font-size: 46px; 
+            color: var(--text-white); 
+            font-weight: 300;
+            font-family: 'Playfair Display', serif; 
+            line-height: 1;
+        }
+        
+        .bs-price .currency { 
+            font-size: 20px; 
+            color: var(--gold-primary); 
+            position: relative; 
+            top: -18px; 
+            font-weight: 500;
+        }
+        
+        .bs-price .usd { 
+            display: block; 
+            font-size: 14px; 
+            color: var(--text-gray); 
+            margin-top: 10px; 
+            letter-spacing: 1px;
+        }
+
+        /* Danh sách tính năng */
+        .bs-features { 
+            flex-grow: 1; 
+            margin-bottom: 40px; 
+        }
+        
+        .bs-features li {
+            color: var(--text-gray); 
+            font-size: 14px; 
+            margin-bottom: 18px;
+            display: flex; 
+            align-items: flex-start; 
+            gap: 12px; 
+            line-height: 1.6;
+        }
+        
+        .bs-features li::before {
+            content: '✓'; 
+            color: var(--gold-primary); 
+            font-weight: bold;
+            font-size: 16px; 
+            display: inline-block; 
+            font-family: sans-serif;
+            margin-top: 2px;
+        }
+
+        /* Nút Đặt Gói */
+        .bs-action { 
+            text-align: center; 
+            margin-top: auto;
+        }
+        
+        .bs-btn-full {
+            display: block; 
+            width: 100%; 
+            padding: 16px;
+            background: transparent; 
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light); 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-size: 13px; 
+            font-weight: 700; 
+            border-radius: 4px;
+            transition: all 0.4s ease; 
+            cursor: pointer; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .bs-card.popular .bs-btn-full, .bs-btn-full:hover {
+            background: var(--gold-gradient); 
+            color: #1A100B; 
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Responsive cho Best Sellers */
+        @media (max-width: 1100px) {
+            .bs-grid { grid-template-columns: 1fr; gap: 60px; max-width: 500px;}
+            .bs-card.popular { transform: scale(1); }
+            .bs-card.popular:hover { transform: translateY(-10px); }
+            .bs-card { padding: 40px 30px; }
+        }
+        /* ========================================== */
+        /* ======== 9. KHÔNG GIAN (GALLERY) CSS ===== */
+        /* ========================================== */
+        .ikigai-gallery-section {
+            padding: 100px 0 120px;
+            background-color: var(--bg-body);
+            position: relative;
+            overflow: hidden; /* Cực kỳ quan trọng: Giữ slider không bị tràn màn hình ngang */
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+        
+        .ikigai-gallery-section::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 10%; 
+            width: 80%; 
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 5%;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Vùng chứa Băng chuyền */
+        .slider-container {
+            position: relative;
+            max-width: 1550px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Thanh trượt kéo ngang */
+        .gallery-track {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory; /* Tính năng bắt dính (snap) khung hình mượt mà */
+            scroll-behavior: smooth;
+            padding: 20px 5px;
+            -ms-overflow-style: none;  /* Ẩn scrollbar IE/Edge */
+            scrollbar-width: none;  /* Ẩn scrollbar Firefox */
+        }
+        
+        .gallery-track::-webkit-scrollbar { 
+            display: none; /* Ẩn scrollbar Chrome/Safari/Mac */
+        }
+
+        /* Từng khung ảnh */
+        .gallery-slide {
+            flex: 0 0 calc(33.333% - 20px); /* Hiển thị 3 ảnh trên Desktop */
+            scroll-snap-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+
+        /* Tỷ lệ ảnh 4:5 chuẩn Luxury Resort */
+        .gallery-slide-inner {
+            position: relative;
+            width: 100%;
+            padding-top: 125%; /* Aspect Ratio 4:5 (100 / 4 * 5) */
+            overflow: hidden;
+        }
+        
+        .gallery-slide-inner img {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .gallery-slide:hover .gallery-slide-inner img { 
+            transform: scale(1.08); 
+        }
+
+        /* Lớp phủ mờ (Gradient Overlay) để nổi chữ */
+        .gallery-overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26,16,11,0) 40%, rgba(26,16,11,0.95) 100%);
+            pointer-events: none; 
+            z-index: 1; 
+            transition: opacity 0.4s ease;
+        }
+
+        /* Text chú thích ảnh */
+        .gallery-caption {
+            position: absolute; 
+            bottom: 30px; 
+            left: 30px; 
+            right: 30px; 
+            z-index: 2;
+            transform: translateY(20px); 
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .gallery-slide:hover .gallery-caption { 
+            transform: translateY(0); 
+        }
+        
+        .gallery-caption h4 {
+            color: var(--gold-light); 
+            font-size: 22px; 
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px; 
+            letter-spacing: 1px;
+        }
+        
+        .gallery-caption p {
+            color: var(--text-gray); 
+            font-size: 14px; 
+            line-height: 1.7;
+            font-weight: 400; 
+            display: -webkit-box; 
+            -webkit-line-clamp: 2; /* Cắt bớt chữ nếu dài quá 2 dòng */
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+        }
+
+        /* Nút điều hướng Trái/Phải (Arrows) */
+        .nav-arrow {
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%);
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%;
+            background-color: rgba(26, 16, 11, 0.85);
+            border: 1px solid var(--gold-primary); 
+            color: var(--gold-light);
+            font-size: 24px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .nav-arrow:hover { 
+            background: var(--gold-gradient); 
+            color: #1A100B; 
+            border-color: transparent; 
+            scale: 1.1; 
+        }
+        
+        .nav-prev { left: 2%; }
+        .nav-next { right: 2%; }
+
+        /* ========================================== */
+        /* ======== 10. CẨM NANG (BLOG) CSS ========= */
+        /* ========================================== */
+        .news-section {
+            padding: 100px 5% 120px;
+            background-color: var(--bg-header); /* Tạo nền tương phản với Gallery */
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+        }
+        
+        .news-header {
+            text-align: center; 
+            margin-bottom: 70px; 
+            max-width: 850px;
+            margin-left: auto; 
+            margin-right: auto;
+        }
+
+        /* Lưới chia bài viết (1 to bên trái, 3 nhỏ bên phải) */
+        .news-grid {
+            display: grid; 
+            grid-template-columns: 1.2fr 1fr; 
+            gap: 40px;
+            max-width: 1350px; 
+            margin: 0 auto;
+        }
+
+        /* CSS Chung cho Bài viết */
+        .post-card {
+            background-color: var(--bg-body); 
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 8px; 
+            overflow: hidden; 
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer; 
+        }
+        
+        .post-card:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .post-thumb { 
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .post-thumb img { 
+            width: 100%; 
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            display: block; 
+        }
+        
+        .post-card:hover .post-thumb img { 
+            transform: scale(1.08); 
+        }
+        
+        /* Tag Danh mục bài viết */
+        .post-cat {
+            position: absolute; 
+            top: 25px; 
+            left: 25px;
+            background: var(--gold-gradient); 
+            color: #1A100B;
+            padding: 6px 18px; 
+            font-size: 11px; 
+            font-weight: 800;
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            border-radius: 4px; 
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* CSS Bài nổi bật (Khối to bên Trái) */
+        .featured-post .post-thumb img { 
+            height: 450px; 
+            object-fit: cover; 
+        }
+        
+        .featured-post .post-content { 
+            padding: 45px 40px; 
+        }
+        
+        .post-meta {
+            font-size: 13px; 
+            color: var(--gold-primary); 
+            margin-bottom: 15px;
+            font-weight: 500; 
+            letter-spacing: 1px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px;
+        }
+        
+        .post-meta i { 
+            font-style: normal; 
+            font-size: 14px; 
+        }
+        
+        .featured-post .post-title {
+            font-size: 32px; 
+            color: var(--text-white); 
+            margin-bottom: 20px; 
+            line-height: 1.4;
+            transition: color 0.3s; 
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .featured-post .post-title:hover { 
+            color: var(--gold-light); 
+        }
+        
+        .featured-post .post-excerpt {
+            color: var(--text-gray); 
+            font-size: 15px; 
+            line-height: 1.9; 
+            margin-bottom: 30px;
+            display: -webkit-box; 
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+        }
+        
+        .read-more {
+            display: inline-block; 
+            color: var(--gold-light); 
+            font-size: 13px;
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            position: relative; 
+            padding-bottom: 6px;
+        }
+        
+        .read-more::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0;
+            width: 40px; 
+            height: 2px; 
+            background-color: var(--gold-primary); 
+            transition: width 0.3s ease;
+        }
+        
+        .post-card:hover .read-more::after { 
+            width: 100%; 
+        }
+
+        /* CSS Danh sách bài nhỏ (Bên Phải) */
+        .post-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 25px; 
+        }
+        
+        .list-post {
+            display: flex; 
+            align-items: center; 
+            background-color: var(--bg-body);
+            border: 1px solid rgba(212, 175, 55, 0.1); 
+            border-radius: 8px; 
+            padding: 18px;
+            transition: transform 0.3s ease, background 0.3s; 
+            gap: 25px;
+        }
+        
+        .list-post:hover {
+            transform: translateX(-8px) translateY(-5px); 
+            background-color: #33231A; 
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        
+        .list-post .post-thumb { 
+            width: 180px; 
+            height: 140px; 
+            flex-shrink: 0; 
+            border-radius: 6px; 
+        }
+        
+        .list-post .post-thumb img { 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        
+        .list-post .post-cat { 
+            top: 12px; 
+            left: 12px; 
+            font-size: 9px; 
+            padding: 4px 12px; 
+        }
+        
+        .list-post .post-content { 
+            flex-grow: 1; 
+        }
+        
+        .list-post .post-meta { 
+            margin-bottom: 10px; 
+            font-size: 12px; 
+        }
+        
+        .list-post .post-title {
+            font-size: 20px; 
+            color: var(--text-white); 
+            line-height: 1.4; 
+            transition: color 0.3s;
+            display: -webkit-box; 
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical; 
+            overflow: hidden;
+            margin-bottom: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .list-post .post-title:hover { 
+            color: var(--gold-light); 
+        }
+
+        /* ========================================== */
+        /* ====== 11. MODAL POPUP (CỬA SỔ ĐỌC BÁO) == */
+        /* ========================================== */
+        .modal-overlay {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999; 
+            display: none; 
+            justify-content: center; 
+            align-items: center;
+            opacity: 0; 
+            transition: opacity 0.4s ease;
+        }
+        
+        .modal-overlay.active { 
+            display: flex; 
+            opacity: 1; 
+        }
+        
+        .modal-content-box {
+            background-color: var(--bg-body); 
+            border: 1px solid var(--gold-primary);
+            width: 90%; 
+            max-width: 850px; 
+            max-height: 85vh; 
+            border-radius: 8px;
+            position: relative; 
+            overflow-y: auto; 
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            transform: translateY(50px); 
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .modal-overlay.active .modal-content-box { 
+            transform: translateY(0); 
+        }
+
+        /* Tùy chỉnh thanh cuộn siêu đẹp của modal */
+        .modal-content-box::-webkit-scrollbar { width: 8px; }
+        .modal-content-box::-webkit-scrollbar-track { background: var(--bg-header); border-radius: 4px; }
+        .modal-content-box::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+
+        .modal-close {
+            position: absolute; 
+            top: 25px; 
+            right: 25px;
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%;
+            background-color: var(--bg-header); 
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary); 
+            font-size: 20px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            cursor: pointer; 
+            transition: 0.3s;
+            z-index: 10;
+        }
+        
+        .modal-close:hover { 
+            background: var(--gold-gradient); 
+            color: #1A100B; 
+            transform: rotate(90deg);
+        }
+
+        .modal-body-img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 6px; 
+            margin-bottom: 35px; 
+        }
+        
+        .modal-body-title { 
+            font-size: 36px; 
+            color: var(--gold-light); 
+            font-family: 'Playfair Display', serif; 
+            margin-bottom: 20px; 
+            line-height: 1.3; 
+        }
+        
+        .modal-body-meta { 
+            font-size: 14px; 
+            color: var(--gold-primary); 
+            margin-bottom: 30px; 
+            display: flex; 
+            gap: 25px; 
+            border-bottom: 1px dashed rgba(255,255,255,0.15); 
+            padding-bottom: 20px; 
+        }
+        
+        .modal-body-text { 
+            color: var(--text-gray); 
+            font-size: 16px; 
+            line-height: 1.9; 
+        }
+        
+        .modal-body-text p { 
+            margin-bottom: 25px; 
+            text-align: justify; 
+        }
+        
+        .modal-body-text h4 { 
+            color: var(--text-white); 
+            font-size: 20px; 
+            margin: 35px 0 15px; 
+            font-weight: 600; 
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gold-light);
+        }
+
+        /* Responsive cho Gallery, Blog & Modal */
+        @media (max-width: 1024px) {
+            .gallery-slide { flex: 0 0 calc(50% - 15px); }
+            .news-grid { grid-template-columns: 1fr; gap: 50px; }
+            .featured-post .post-thumb img { height: 500px; }
+        }
+        @media (max-width: 768px) {
+            .gallery-slide { flex: 0 0 calc(85% - 10px); }
+            .nav-prev { left: 10px; }
+            .nav-next { right: 10px; }
+            .featured-post .post-thumb img { height: 300px; }
+            .featured-post .post-title { font-size: 26px; }
+            .list-post { flex-direction: column; align-items: stretch; padding: 0; overflow: hidden; }
+            .list-post .post-thumb { width: 100%; height: 250px; border-radius: 8px 8px 0 0; }
+            .list-post .post-content { padding: 25px; }
+            
+            /* Responsive Modal */
+            .modal-content-box { padding: 30px 20px; width: 95%; }
+            .modal-body-title { font-size: 26px; }
+            .modal-body-img { height: 250px; }
+            .modal-close { top: 15px; right: 15px; }
+        }
+        /* ========================================== */
+        /* ======== 12. FORM ĐẶT LỊCH (BOOKING) ===== */
+        /* ========================================== */
+        .booking-section {
+            padding: 100px 5%;
+            /* Sử dụng ảnh img32.png làm nền, kết hợp gradient đen mờ để làm nổi bật form */
+            background: linear-gradient(rgba(26, 16, 11, 0.85), rgba(26, 16, 11, 0.95)), url('images/img32.png') center/cover no-repeat;
+            background-attachment: fixed; /* Hiệu ứng cuộn Parallax (Ảnh đứng im khi cuộn) */
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        
+        .booking-container {
+            max-width: 1300px; 
+            margin: 0 auto;
+            display: grid; 
+            grid-template-columns: 1fr 1.3fr; 
+            gap: 0;
+            background-color: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px; 
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+
+        /* Bên trái: Thông tin liên hệ & Khuyến mãi */
+        .booking-info {
+            padding: 70px 50px;
+            background: linear-gradient(135deg, rgba(44, 30, 22, 0.95) 0%, rgba(26, 16, 11, 0.98) 100%);
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            border-right: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .booking-info h3 {
+            font-size: 42px; 
+            color: var(--gold-light); 
+            margin-bottom: 25px;
+            line-height: 1.2; 
+            letter-spacing: 1px;
+        }
+        
+        .booking-info p {
+            color: var(--text-gray); 
+            font-size: 15px; 
+            margin-bottom: 45px; 
+            line-height: 1.9;
+        }
+        
+        .contact-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        
+        .contact-icon {
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            border: 1px dashed var(--gold-primary);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 24px; 
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+        
+        .contact-text h4 { 
+            font-size: 13px; 
+            color: var(--text-gray); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 8px; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .contact-text span { 
+            font-size: 19px; 
+            color: var(--text-white); 
+            font-weight: 600; 
+            font-family: 'Playfair Display', serif; 
+            letter-spacing: 1.5px;
+        }
+
+        /* Box Ưu Đãi (Offer Box) */
+        .offer-box {
+            margin-top: 30px; 
+            padding: 30px 25px; 
+            background-color: rgba(212, 175, 55, 0.05);
+            border: 1px solid var(--gold-primary); 
+            border-radius: 6px; 
+            text-align: center;
+            position: relative; 
+            overflow: hidden;
+        }
+        
+        .offer-box::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: -100%; 
+            width: 50%; 
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(212,175,55,0.2), transparent);
+            animation: shineVIP 3s infinite;
+        }
+        
+        @keyframes shineVIP { 100% { left: 200%; } }
+        
+        .offer-box h4 { 
+            color: var(--gold-light); 
+            font-size: 18px; 
+            margin-bottom: 15px; 
+            letter-spacing: 1.5px;
+        }
+        
+        .offer-box p { 
+            color: var(--text-white); 
+            font-size: 14px; 
+            margin: 0; 
+            line-height: 1.7;
+        }
+
+        /* Bên phải: Form nhập liệu Glassmorphism */
+        .booking-form-wrap { 
+            padding: 70px 50px; 
+            background: rgba(26, 16, 11, 0.98);
+        }
+        
+        .booking-form-wrap h3 {
+            font-size: 26px; 
+            color: var(--text-white); 
+            margin-bottom: 40px;
+            text-transform: uppercase; 
+            letter-spacing: 2.5px; 
+            text-align: center;
+        }
+        
+        .form-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px; 
+        }
+        
+        .form-full { 
+            grid-column: span 2; 
+        }
+        
+        .form-group { 
+            position: relative; 
+        }
+        
+        .form-group label {
+            display: block; 
+            font-size: 12px; 
+            font-weight: 700; 
+            color: var(--gold-primary);
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 12px;
+        }
+        
+        .form-control {
+            width: 100%; 
+            padding: 16px 20px; 
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 4px;
+            color: var(--text-white); 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 15px;
+            transition: all 0.3s ease; 
+            outline: none;
+        }
+        
+        .form-control:focus {
+            border-color: var(--gold-primary);
+            background-color: rgba(26, 16, 11, 0.8);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        
+        .form-control::placeholder { 
+            color: rgba(255,255,255,0.3); 
+        }
+        
+        select.form-control { 
+            cursor: pointer; 
+            appearance: none; 
+            -webkit-appearance: none;
+        }
+        
+        /* Mũi tên giả cho thẻ select */
+        .select-wrapper { position: relative; }
+        .select-wrapper::after {
+            content: '▼'; 
+            position: absolute; 
+            top: 52px; 
+            right: 20px;
+            color: var(--gold-primary); 
+            font-size: 12px; 
+            pointer-events: none;
+        }
+
+        .btn-submit-booking {
+            width: 100%; 
+            margin-top: 35px; 
+            padding: 20px; 
+            font-size: 16px;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 12px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Responsive Phần Đặt Lịch */
+        @media (max-width: 1024px) {
+            .booking-container { grid-template-columns: 1fr; }
+            .booking-info { padding: 50px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .booking-form-wrap { padding: 50px; }
+        }
+        @media (max-width: 768px) {
+            .booking-form-wrap { padding: 40px 20px; }
+            .form-grid { grid-template-columns: 1fr; gap: 20px; }
+            .form-full { grid-column: span 1; }
+            .booking-info h3 { font-size: 34px; }
+        }
+
+        /* ========================================== */
+        /* ======== 13. CHÂN TRANG (FOOTER) CSS ===== */
+        /* ========================================== */
+        footer {
+            background-color: #110A07; /* Đen tuyền siêu đậm để khóa lại layout */
+            padding: 100px 5% 30px;
+            color: var(--text-gray);
+        }
+        
+        .footer-container {
+            max-width: 1350px; 
+            margin: 0 auto;
+            display: grid; 
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr; 
+            gap: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            padding-bottom: 70px; 
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-white); 
+            font-size: 16px; 
+            margin-bottom: 30px;
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Footer Logo */
+        .footer-logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 30px; 
+        }
+        
+        .footer-logo .icon {
+            width: 55px; 
+            height: 55px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            object-fit: contain;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .footer-logo .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .footer-logo .text h3 { 
+            color: var(--text-white); 
+            font-size: 24px; 
+            letter-spacing: 3px; 
+            line-height: 1; 
+        }
+        
+        .footer-logo .text small { 
+            color: var(--gold-primary); 
+            font-size: 11px; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+        }
+        
+        .footer-desc { 
+            font-size: 15px; 
+            line-height: 1.9; 
+            margin-bottom: 30px; 
+        }
+        
+        .footer-social { 
+            display: flex; 
+            gap: 15px; 
+        }
+        
+        .footer-social a {
+            width: 45px; 
+            height: 45px; 
+            border-radius: 50%; 
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: var(--text-white);
+            transition: 0.3s; 
+            font-family: Arial, sans-serif; 
+            font-weight: bold;
+        }
+        
+        .footer-social a:hover { 
+            background: var(--gold-gradient); 
+            color: #110A07; 
+            border-color: transparent; 
+            transform: translateY(-5px); 
+        }
+
+        /* Danh sách Link Footer */
+        .footer-list li { margin-bottom: 18px; font-size: 14px; }
+        .footer-list a { color: var(--text-gray); transition: 0.3s; }
+        .footer-list a:hover { color: var(--gold-primary); padding-left: 8px; }
+        
+        /* Thông tin liên hệ Footer */
+        .footer-contact li {
+            display: flex; 
+            align-items: flex-start; 
+            gap: 18px;
+            margin-bottom: 25px; 
+            font-size: 14px; 
+            line-height: 1.7;
+        }
+        .footer-contact li i { 
+            color: var(--gold-primary); 
+            font-style: normal; 
+            font-size: 18px; 
+            margin-top: 2px; 
+        }
+
+        /* Footer Bản Đồ */
+        .footer-map {
+            width: 100%; 
+            height: 220px; 
+            border-radius: 6px; 
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .copyright {
+            text-align: center; 
+            font-size: 13px; 
+            font-weight: 500;
+            letter-spacing: 1.5px; 
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 1024px) {
+            .footer-container { grid-template-columns: repeat(2, 1fr); gap: 50px; }
+        }
+        @media (max-width: 768px) {
+            .footer-container { grid-template-columns: 1fr; }
+        }
+
+        /* ========================================== */
+        /* ======== 14. NÚT LIÊN HỆ (FLOATING) ====== */
+        /* ========================================== */
+        .floating-left {
+            position: fixed; 
+            left: 25px; 
+            bottom: 35px; 
+            z-index: 9999;
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px;
+        }
+        
+        .float-btn {
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            color: var(--text-white); 
+            font-weight: bold; 
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); 
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid transparent; 
+            text-decoration: none;
+        }
+        
+        .float-btn:hover { 
+            transform: scale(1.15) translateY(-5px); 
+            color: var(--text-white); 
+        }
+        
+        .float-btn.zalo { background-color: #0068FF; font-family: Arial; }
+        .float-btn.facebook { background-color: #1877F2; font-size: 28px;}
+        .float-btn.whatsapp { background-color: #25D366; font-size: 28px;}
+        .float-btn.line { background-color: #00B900; font-size: 28px;}
+        .float-btn.kakao {
+            background-color: #FEE500; 
+            color: #3b1e1e; 
+            border-radius: 30px;
+            width: auto; 
+            padding: 0 25px; 
+            font-size: 15px; 
+            font-weight: 800; 
+            gap: 10px;
+        }
+        .float-btn.kakao:hover { color: #000; }
+
+        .floating-right {
+            position: fixed; 
+            right: 25px; 
+            bottom: 35px; 
+            z-index: 9999;
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px;
+        }
+        
+        .float-btn-call {
+            width: 65px; 
+            height: 65px; 
+            border-radius: 50%;
+            background: var(--gold-gradient); 
+            color: #110A07;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            font-size: 30px; 
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition: 0.3s; 
+            animation: pulseCall 2s infinite; 
+            cursor: pointer; 
+            text-decoration: none;
+        }
+        
+        .float-btn-call:hover { 
+            transform: scale(1.1); 
+            animation: none; 
+        }
+        
+        @keyframes pulseCall {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.8); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        /* Responsive Floating Buttons */
+        @media (max-width: 768px) {
+            .floating-left, .floating-right { 
+                bottom: 20px; 
+                transform: scale(0.85); 
+                transform-origin: bottom; 
+            }
+            .floating-left { left: 15px; } 
+            .floating-right { right: 15px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="tb-left">
+                <span><i>📍</i> <span data-i18n="top_address">170 Trần Phú, Phước Ninh, Hải Châu, Đà Nẵng</span></span>
+                <span><i>📞</i> <span data-i18n="top_contact">0784170170</span></span>
+                <span><i>🕒</i> <span data-i18n="top_time">Mở cửa: 09:00 - 23:00</span></span>
+            </div>
+            <div class="tb-right">
+                <div class="lang-switch">
+                    <span class="lang-btn active" data-lang="en" title="English"><span style="font-size: 15px;">🇺🇸</span> EN</span>
+                    <span class="lang-btn" data-lang="ko" title="한국어"><span style="font-size: 15px;">🇰🇷</span> KO</span>
+                    <span class="lang-btn" data-lang="ja" title="日本語"><span style="font-size: 15px;">🇯🇵</span> JA</span>
+                    <span class="lang-btn" data-lang="ch" title="中文"><span style="font-size: 15px;">🇨🇳</span> CH</span>
+                    <span class="lang-btn" data-lang="vi" title="Tiếng Việt"><span style="font-size: 15px;">🇻🇳</span> VI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+    <div class="logo-icon"><img src="ikigailogo.png" alt="IKIGAI Logo"></div>
+    <div class="logo-text">
+        <span class="serif-font">IKIGAI SPA</span>
+        <small>Center & Wellness</small>
+    </div>
+</a>
+
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" data-i18n="nav_home">Trang Chủ</a></li>
+                    <li><a href="#story" data-i18n="nav_story">Câu Chuyện</a></li>
+                    <li><a href="#services" data-i18n="nav_services">Dịch Vụ</a></li>
+                    <li><a href="#menu" data-i18n="nav_menu">Bảng Giá</a></li>
+                    <li><a href="#blog" data-i18n="nav_blog">Cẩm Nang</a></li>
+                </ul>
+            </nav>
+
+            <button class="btn-gold" onclick="scrollToBooking()">
+                <span data-i18n="btn_booking">Đặt Lịch Ngay</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        
+        <div class="hero-info">
+            <h1 class="hero-title" data-i18n="hero_title">Nghệ Thuật Trị Liệu Thân Tâm</h1>
+            <p class="hero-desc" data-i18n="hero_desc">Được thiết kế với tiêu chuẩn 5 sao, IKIGAI Spa Center mang đến không gian thư giãn tĩnh lặng giữa lòng Đà Nẵng, nơi mọi muộn phiền dừng lại sau cánh cửa.</p>
+            
+            <ul class="hero-services">
+                <li><i>✦</i> <span data-i18n="hero_feature1">Massage Trị Liệu Đá Nóng Chuyên Sâu</span></li>
+                <li><i>✦</i> <span data-i18n="hero_feature2">Kéo Giãn Cơ Chuẩn Thái Lan (Thai Massage)</span></li>
+                <li><i>✦</i> <span data-i18n="hero_feature3">Gội Đầu Dưỡng Sinh & Chăm Sóc Da Mặt</span></li>
+                <li><i>✦</i> <strong style="color: var(--gold-light);" data-i18n="hero_feature4">100% Không Phát Sinh Tiền Tip (Tip Included)</strong></li>
+            </ul>
+
+            <div>
+                <a href="#menu" class="btn-outline"><span data-i18n="btn_explore">Khám Phá Menu</span></a>
+            </div>
+
+            <div class="hero-contact">
+                <p><strong data-i18n="book_hotline_text">Hotline Đặt Lịch:</strong> <a href="tel:0784170170" class="serif-font" style="font-size: 18px;">0784 170 170</a></p>
+                <p><strong data-i18n="book_address_text">Địa Chỉ Spa:</strong> <span data-i18n="book_address">170 Trần Phú, Phước Ninh, Hải Châu, Đà Nẵng</span></p>
+            </div>
+        </div>
+
+        <div class="hero-gallery">
+            <div class="hg-item">
+                <img src="img1.jpg" alt="IKIGAI Hot Stone Massage">
+                <h3 class="hg-label serif-font" data-i18n="hero_img1_label">Hot Stone<br>Body Massage</h3>
+            </div>
+            <div class="hg-item">
+                <img src="img2.jpg" alt="IKIGAI Thai Massage">
+                <h3 class="hg-label serif-font" data-i18n="hero_img2_label">Traditional<br>Thai Massage</h3>
+            </div>
+            <div class="hg-item">
+                <img src="img3.jpg" alt="IKIGAI Vietnam Shampoo">
+                <h3 class="hg-label serif-font" data-i18n="hero_img3_label">Vietnam<br>Shampoo
+                </h3>
+            </div>
+        </div>
+
+    </section>
+    <section id="story" class="story-section">
+        <div class="story-container">
+            
+            <div class="story-quote-box">
+                <span class="story-sub-heading" data-i18n="story_sub">Triết Lý Cân Bằng</span>
+                <div class="quote-mark">"</div>
+                <h2 class="story-main-heading serif-font" data-i18n="story_title">Hành Trình Tìm Lại Lẽ Sống Của Chính Mình</h2>
+                <p class="story-highlight" data-i18n="story_quote">"Trong văn hóa Nhật Bản, Ikigai (い き が い) mang ý nghĩa: Mỗi sớm mai thức giấc, bạn biết mình đang sống vì điều gì. Đó là sự giao thoa hoàn hảo giữa đam mê, sứ mệnh và những giá trị bạn mang lại cho cuộc đời."</p>
+            </div>
+
+            <div class="story-content-box">
+                <p class="story-text" data-i18n="story_p1">Ra đời với khát vọng tạo nên một chốn nương náu bình yên giữa lòng Đà Nẵng nhộn nhịp, <strong>IKIGAI Spa Center</strong> không chỉ đơn thuần cung cấp các liệu pháp Massage hay làm đẹp. Chúng tôi tạo ra một "nghi thức" chữa lành toàn diện cho cả cơ thể lẫn tâm hồn.</p>
+                <p class="story-text" data-i18n="story_p2">Sở hữu vị trí đắc địa ngay trung tâm thành phố (170 Trần Phú), chỉ cách Nhà thờ Con Gà (Chicken Church) vài bước chân và rất gần với nhịp sống sầm uất của Chợ Hàn. Bước qua cánh cửa của IKIGAI, bạn sẽ bỏ lại mọi ồn ào phố thị. Một không gian phảng phất hương thảo mộc, một điệu nhạc thiền êm ái và những đôi bàn tay trị liệu điêu luyện đang chờ đón bạn.</p>
+                
+                <div class="story-images">
+                    <div class="story-img-wrap img-tall">
+                        <img src="IMG_0350_VSCO.JPG" alt="Không gian IKIGAI Spa">
+                    </div>
+                    <div class="story-img-wrap img-short">
+                        <img src="IMG_0352_VSCO.JPG" alt="Tinh dầu trị liệu IKIGAI">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="video-intro-section">
+        <div class="container">
+            <div class="video-title-wrap">
+                <span class="grid-subtitle" data-i18n="video_sub">Visual Journey</span>
+                <h2 class="grid-main-title serif-font" data-i18n="video_title">Cảm Nhận IKIGAI Qua Từng Thước Phim</h2>
+            </div>
+            
+            <div class="video-wrapper">
+                <div class="video-container">
+                    <iframe src="videomoi.mp4" 
+                            title="IKIGAI Spa Center Cinematic Video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="services-grid-section">
+        <div class="grid-header-wrapper">
+            <span class="grid-subtitle" data-i18n="grid_sub">Dịch Vụ Nổi Bật</span>
+            <h2 class="grid-main-title serif-font" data-i18n="grid_title">Tinh Hoa Trị Liệu Tại IKIGAI</h2>
+            <p class="grid-desc" data-i18n="grid_desc">Từ những bài quy trình Massage trị liệu chuyên sâu đánh tan nhức mỏi, đến các gói gội đầu dưỡng sinh mộc mạc làm dịu tâm hồn. Dưới đây là những dịch vụ tinh túy nhất mà chúng tôi mang đến cho bạn.</p>
+        </div>
+
+        <div class="service-matrix">
+            
+            <div class="matrix-item">
+                <img src="FootMS.png" alt="Hot Stone Foot Massage">
+                <div class="matrix-title" data-i18n="srv_box_1">Massage Chân Đá Nóng</div>
+            </div>
+            <div class="matrix-item">
+                <img src="HotstoneBD.png" alt="Hot Stone Body Massage">
+                <div class="matrix-title" data-i18n="srv_box_2">Massage Toàn Thân Đá Nóng</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ThaiMS.png" alt="Traditional Thai Massage">
+                <div class="matrix-title" data-i18n="srv_box_3">Massage Thái Truyền Thống</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ThaiOilMS.webp" alt="Thai & Oil Massage">
+                <div class="matrix-title" data-i18n="srv_box_4">Massage Thái Kết Hợp Tinh Dầu</div>
+            </div>
+
+            <div class="matrix-item">
+                <img src="Prenatal.png" alt="Prenatal Massage">
+                <div class="matrix-title" data-i18n="srv_box_5">Massage Cho Mẹ Bầu</div>
+            </div>
+            <div class="matrix-item">
+                <img src="4Hand.png" alt="Four Hands Massage">
+                <div class="matrix-title" data-i18n="srv_box_6">Massage Bốn Tay</div>
+            </div>
+            <div class="matrix-item">
+                <img src="VCL.webp" alt="Neck, Shoulder & Back Massage">
+                <div class="matrix-title" data-i18n="srv_box_7">Massage Cổ, Vai, Gáy</div>
+            </div>
+            <div class="matrix-item">
+                <img src="Vietnam.jpeg" alt="Vietnamese Cupping">
+                <div class="matrix-title" data-i18n="srv_box_8">Giác Hơi Trị Liệu</div>
+            </div>
+
+            <div class="matrix-item">
+                <img src="Shampoo.webp" alt="Vietnam Shampoo">
+                <div class="matrix-title" data-i18n="srv_box_9">Gội Đầu Dưỡng Sinh</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ComboGoiMat.jpg" alt="Shampoo & Facial Combo">
+                <div class="matrix-title" data-i18n="srv_box_10">Combo Gội Đầu & Chăm Sóc Da Mặt</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ComboRayCao.webp" alt="Ear Cleaning & Shave">
+                <div class="matrix-title" data-i18n="srv_box_11">Lấy Ráy Tai & Cạo Mặt</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ComboChanChagot.png" alt="Rub Heels & Foot Combo">
+                <div class="matrix-title" data-i18n="srv_box_12">Chà Gót Chân & Massage Chân</div>
+            </div>
+
+            <div class="matrix-item">
+                <img src="FULLVIP.png" alt="Full Service VIP Combo">
+                <div class="matrix-title" data-i18n="srv_box_13">Combo Dịch Vụ VIP Toàn Diện</div>
+            </div>
+            <div class="matrix-item">
+                <img src="Nail.png" alt="Gel Polish & Nail Art">
+                <div class="matrix-title" data-i18n="srv_box_14">Làm Móng & Sơn Gel Nghệ Thuật</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ComboRayChan.webp" alt="Foot & Heel Scrub Combo">
+                <div class="matrix-title" data-i18n="srv_box_15">Combo chăm sóc bàn chân & ráy tai</div>
+            </div>
+            <div class="matrix-item">
+                <img src="ComboChanGoi.webp" alt="Facial Treatment Massage">
+                <div class="matrix-title" data-i18n="srv_box_16">Combo Chân Gội</div>
+            </div>
+
+        </div>
+    </section>
+    <section id="menu" class="menu-pricing-section">
+        <div class="menu-header container">
+            <span class="grid-subtitle" data-i18n="menu_sub">Bảng Giá Dịch Vụ</span>
+            <h2 class="grid-main-title serif-font" data-i18n="menu_title">IKIGAI Spa Menu</h2>
+            <p class="grid-desc" data-i18n="menu_desc">Mức giá minh bạch, đẳng cấp 5 sao và hoàn toàn không phát sinh chi phí. Hãy lựa chọn liệu trình phù hợp nhất để đánh thức cơ thể bạn.</p>
+        </div>
+
+        <div class="container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="openTab(event, 'tab-massage')" data-i18n="tab_massage">Massage</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-combo')" data-i18n="tab_combo">Full-Service Combo</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-nail')" data-i18n="tab_nail">Nail & Heel Scrub</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-shampoo')" data-i18n="tab_shampoo">Shampoo & Face & Earwax</button>
+            </div>
+
+            <div id="tab-massage" class="tab-content active">
+                <div class="table-responsive">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">No.</th>
+                                <th style="width: 35%;" class="td-left" data-i18n="th_type">Loại Dịch Vụ</th>
+                                <th style="width: 20%;" data-i18n="th_duration">Thời Gian</th>
+                                <th style="width: 20%;" data-i18n="th_price_oil">Giá (Dùng Dầu)</th>
+                                <th style="width: 20%;" data-i18n="th_price_cream">Giá (Dùng Kem)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="td-center srv-no">1</td><td class="td-left"><span class="srv-name" data-i18n="m_hot_stone_foot">Massage Chân Bằng Đá Nóng</span></td><td class="td-center"><span class="srv-time">30min</span><br><span class="srv-time">45min</span><br><span class="srv-time">60min</span><br><span class="srv-time">90min</span><br><span class="srv-time">120min</span></td><td class="td-center"><span class="srv-price">150.000đ <span>($7)</span></span><span class="srv-price">230.000đ <span>($10)</span></span><span class="srv-price">250.000đ <span>($11)</span></span><span class="srv-price">400.000đ <span>($17)</span></span><span class="srv-price">550.000đ <span>($24)</span></span></td><td class="td-center"><span class="srv-price">190.000đ <span>($8)</span></span><span class="srv-price">270.000đ <span>($12)</span></span><span class="srv-price">300.000đ <span>($13)</span></span><span class="srv-price">450.000đ <span>($20)</span></span><span class="srv-price">600.000đ <span>($26)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">2</td><td class="td-left"><span class="srv-name" data-i18n="m_hot_stone_body">Massage Toàn Thân Bằng Đá Nóng</span></td><td class="td-center"><span class="srv-time">60min</span><br><span class="srv-time">90min</span><br><span class="srv-time">120min</span></td><td class="td-center"><span class="srv-price">350.000đ <span>($15)</span></span><span class="srv-price">480.000đ <span>($21)</span></span><span class="srv-price">580.000đ <span>($25)</span></span></td><td class="td-center"><span class="srv-price">390.000đ <span>($17)</span></span><span class="srv-price">520.000đ <span>($23)</span></span><span class="srv-price">630.000đ <span>($27)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">3</td><td class="td-left"><span class="srv-name" data-i18n="m_thai">Massage Kéo Giãn Thái Lan</span></td><td class="td-center"><span class="srv-time">60min</span><br><span class="srv-time">90min</span><br><span class="srv-time">120min</span></td><td colspan="2" class="td-center"><span class="srv-price">400.000đ <span>($17)</span></span><span class="srv-price">550.000đ <span>($24)</span></span><span class="srv-price">650.000đ <span>($28)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">4</td><td class="td-left"><span class="srv-name" data-i18n="m_thai_oil">Massage Thái Kết Hợp Tinh Dầu</span></td><td class="td-center"><span class="srv-time">60min</span><br><span class="srv-time">90min</span><br><span class="srv-time">120min</span></td><td class="td-center"><span class="srv-price">380.000đ <span>($17)</span></span><span class="srv-price">530.000đ <span>($23)</span></span><span class="srv-price">610.000đ <span>($27)</span></span></td><td class="td-center"><span class="srv-price">400.000đ <span>($17)</span></span><span class="srv-price">570.000đ <span>($25)</span></span><span class="srv-price">650.000đ <span>($28)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">5</td><td class="td-left"><span class="srv-name" data-i18n="m_prenatal">Massage Dành Cho Mẹ Bầu</span></td><td class="td-center"><span class="srv-time">60min</span><br><span class="srv-time">90min</span><br><span class="srv-time">120min</span></td><td class="td-center"><span class="srv-price">370.000đ <span>($16)</span></span><span class="srv-price">510.000đ <span>($22)</span></span><span class="srv-price">600.000đ <span>($26)</span></span></td><td class="td-center"><span class="srv-price">400.000đ <span>($17)</span></span><span class="srv-price">550.000đ <span>($24)</span></span><span class="srv-price">650.000đ <span>($28)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">6</td><td class="td-left"><span class="srv-name" data-i18n="m_four_hands">Massage Bốn Tay (2 Kỹ Thuật Viên)</span></td><td class="td-center"><span class="srv-time">60min</span><br><span class="srv-time">90min</span><br><span class="srv-time">120min</span></td><td class="td-center"><span class="srv-price">550.000đ <span>($24)</span></span><span class="srv-price">850.000đ <span>($37)</span></span><span class="srv-price">950.000đ <span>($41)</span></span></td><td class="td-center"><span class="srv-price">600.000đ <span>($26)</span></span><span class="srv-price">900.000đ <span>($39)</span></span><span class="srv-price">1000.000đ <span>($43)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">7</td><td class="td-left"><span class="srv-name" data-i18n="m_back_shoulder">Massage Cổ, Vai và Gáy</span></td><td class="td-center"><span class="srv-time">30min</span><br><span class="srv-time">60min</span><br><span class="srv-time">90min</span></td><td class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span><span class="srv-price">350.000đ <span>($15)</span></span><span class="srv-price">480.000đ <span>($21)</span></span></td><td class="td-center"><span class="srv-price">230.000đ <span>($10)</span></span><span class="srv-price">390.000đ <span>($17)</span></span><span class="srv-price">520.000đ <span>($23)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">8</td><td class="td-left"><span class="srv-name" data-i18n="m_cupping">Giác Hơi Trị Liệu Việt Nam</span></td><td class="td-center"></td><td colspan="2" class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">9</td><td class="td-left"><span class="srv-name" data-i18n="m_combo_hs_hw_60">Combo Massage Body Đá Nóng 60 Phút + Gội Đầu 30 Phút</span></td><td class="td-center"></td><td class="td-center"><span class="srv-price">430.000đ <span>($19)</span></span></td><td class="td-center"><span class="srv-price">470.000đ <span>($20)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">10</td><td class="td-left"><span class="srv-name" data-i18n="m_combo_hs_hw_90">Combo Massage Body Đá Nóng 90 Phút + Gội Đầu 30 Phút</span></td><td class="td-center"></td><td class="td-center"><span class="srv-price">530.000đ <span>($23)</span></span></td><td class="td-center"><span class="srv-price">570.000đ <span>($25)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">11</td><td class="td-left"><span class="srv-name" data-i18n="m_combo_hs_hw_120">Combo Massage Body Đá Nóng 120 Phút + Gội Đầu 30 Phút</span></td><td class="td-center"></td><td class="td-center"><span class="srv-price">630.000đ <span>($27)</span></span></td><td class="td-center"><span class="srv-price">670.000đ <span>($29)</span></span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="menu-note"><p data-i18n="menu_tips">Giá Này Đã Bao Gồm Tiền Tip</p></div>
+            </div>
+
+            <div id="tab-combo" class="tab-content">
+                <div class="table-responsive">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">No.</th><th style="width: 65%;" class="td-left" data-i18n="th_type">Loại Dịch Vụ</th><th style="width: 15%;" data-i18n="th_duration">Thời Gian</th><th style="width: 15%;" data-i18n="th_price">Giá Trọn Gói</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="td-center srv-no">1</td><td class="td-left"><span class="srv-name" data-i18n="c_full">Combo VIP Trọn Gói</span><span class="srv-desc" data-i18n="c_full_desc">Cắt móng, Cạo mặt, Lấy ráy tai, Rửa mặt, Đắp mặt nạ, Gội đầu 2 lần, Xả tóc, Massage đầu-vai-cổ mini, Sấy tóc, Tinh chất dưỡng tóc và Nước hoa hồng.</span></td><td class="td-center"><span class="srv-time">60min</span></td><td class="td-center"><span class="srv-price">350.000đ <span>($15)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">2</td><td class="td-left"><span class="srv-name" data-i18n="c_full_face">Combo VIP + Massage Nâng Cơ Mặt</span><span class="srv-desc" data-i18n="c_full_desc">Cắt móng, Cạo mặt, Lấy ráy tai, Rửa mặt, Đắp mặt nạ, Gội đầu 2 lần, Xả tóc...</span></td><td class="td-center"><span class="srv-time">90min</span></td><td class="td-center"><span class="srv-price">500.000đ <span>($22)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">3</td><td class="td-left"><span class="srv-name" data-i18n="c_full_face_back">Combo VIP + Massage Mặt + Massage Lưng/Chân Khô</span><span class="srv-desc" data-i18n="c_full_desc">Cắt móng, Cạo mặt, Lấy ráy tai, Rửa mặt...</span></td><td class="td-center"><span class="srv-time">120min</span></td><td class="td-center"><span class="srv-price">600.000đ <span>($26)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">4</td><td class="td-left"><span class="srv-name" data-i18n="c_full_face_back_heel">Combo VIP + Massage Mặt + Massage Lưng/Chân + Chà Gót 30 Phút</span><span class="srv-desc" data-i18n="c_full_desc">Cắt móng, Cạo mặt, Lấy ráy tai, Rửa mặt...</span></td><td class="td-center"><span class="srv-time">150min</span></td><td class="td-center"><span class="srv-price">700.000đ <span>($30)</span></span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="menu-note">
+                    <p style="font-size: 13px; text-transform: none; color: var(--text-gray);" data-i18n="c_note_facial">Nếu quý khách không muốn chăm sóc da mặt, vui lòng thông báo trước. Chúng tôi sẽ thay thế bằng liệu trình phù hợp khác.</p>
+                    <p data-i18n="menu_tips">Giá Này Đã Bao Gồm Tiền Tip</p>
+                </div>
+            </div>
+
+            <div id="tab-nail" class="tab-content">
+                <div class="table-responsive">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">No.</th><th style="width: 45%;" class="td-left" data-i18n="th_type">Loại Dịch Vụ</th><th style="width: 25%;" data-i18n="th_hand_foot">Chỉ Tay hoặc Chân</th><th style="width: 25%;" data-i18n="th_hand_and_foot">Cả Tay và Chân</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="td-center srv-no">1</td><td class="td-left"><span class="srv-name" data-i18n="n_cut_cuticles">Cắt Da Thừa, Cắt & Dũa Móng</span></td><td class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span></td><td class="td-center"><span class="srv-price">300.000đ <span>($13)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">2</td><td class="td-left"><span class="srv-name" data-i18n="n_gel_polish">Sơn Móng Gel Cao Cấp</span></td><td class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span></td><td class="td-center"><span class="srv-price">300.000đ <span>($13)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">3</td><td class="td-left"><span class="srv-name" data-i18n="n_gel_removal">Tháo Móng Gel Cũ</span></td><td class="td-center"><span class="srv-price">100.000đ <span>($4)</span></span></td><td class="td-center"><span class="srv-price">130.000đ <span>($6)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">4</td><td class="td-left"><span class="srv-name" data-i18n="n_fake_nails">Đắp Móng Giả / Nối Móng</span></td><td class="td-center"><span class="srv-price">150.000đ <span>($7)</span></span></td><td class="td-center"><span class="srv-price">230.000đ <span>($10)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">5</td><td class="td-left"><span class="srv-name" data-i18n="n_nails_cut_gel">Cắt Móng + Chăm Sóc Biểu Bì + Sơn Gel</span></td><td class="td-center"><span class="srv-price">300.000đ <span>($13)</span></span></td><td class="td-center"><span class="srv-price">500.000đ <span>($22)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">6</td><td class="td-left"><span class="srv-name" data-i18n="n_gel_nail_art">Trang Trí Nghệ Thuật Móng Gel</span></td><td class="td-center"><span class="srv-price">350.000đ <span>($15)</span></span></td><td class="td-center"><span class="srv-price">600.000đ <span>($26)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">7</td><td class="td-left"><span class="srv-name" data-i18n="n_level_up">Vẽ Móng Nghệ Thuật Cao Cấp & Đính Đá Swarovski</span></td><td class="td-center"><span class="srv-price">400.000đ - 550.000đ <span>($17-$24)</span></span></td><td class="td-center"><span class="srv-price">700.000đ - 950.000đ <span>($30-$41)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">8</td><td class="td-left"><span class="srv-name" data-i18n="n_kid_nail">Làm Móng Cho Bé (Dưới 120cm)</span></td><td class="td-center"><span class="srv-price">250.000đ <span>($11)</span></span></td><td class="td-center"><span class="srv-price">400.000đ <span>($17)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">9</td><td class="td-left"><span class="srv-name" data-i18n="n_kid_nail_level">Làm Móng Cho Bé - Vẽ Móng & Đính Đá Swarovski</span></td><td class="td-center"><span class="srv-price">350.000đ - 500.000đ <span>($15-$22)</span></span></td><td class="td-center"><span class="srv-price">600.000đ - 850.000đ <span>($26-$37)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">10</td><td class="td-left"><span class="srv-name" data-i18n="n_heel_scrub">Chà Gót Chân Tẩy Tế Bào Chết</span></td><td colspan="2" class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">11</td><td class="td-left"><span class="srv-name" data-i18n="n_nail_care_combo">Combo Chăm Sóc Móng + Tẩy Tế Bào Chết Chân + Mặt Nạ Chân</span></td><td class="td-center"><span class="srv-price">350.000đ <span>($15)</span></span></td><td class="td-center"><span class="srv-price">600.000đ <span>($26)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">12</td><td class="td-left"><span class="srv-name" data-i18n="n_foot_30_nail">Massage Chân (30ph) + Cắt Móng + Chăm Sóc Biểu Bì + Sơn Gel</span></td><td class="td-center"><span class="srv-price">380.000đ <span>($17)</span></span></td><td class="td-center"><span class="srv-price">550.000đ <span>($24)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">13</td><td class="td-left"><span class="srv-name" data-i18n="n_foot_60_nail">Massage Chân (60ph) + Cắt Móng + Chăm Sóc Biểu Bì + Sơn Gel</span></td><td class="td-center"><span class="srv-price">450.000đ <span>($20)</span></span></td><td class="td-center"><span class="srv-price">650.000đ <span>($28)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">14</td><td class="td-left"><span class="srv-name" data-i18n="n_foot_90_nail">Massage Chân (90ph) + Cắt Móng + Chăm Sóc Biểu Bì + Sơn Gel</span></td><td class="td-center"><span class="srv-price">550.000đ <span>($24)</span></span></td><td class="td-center"><span class="srv-price">750.000đ <span>($33)</span></span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="menu-note"><p data-i18n="menu_tips">Giá Này Đã Bao Gồm Tiền Tip</p></div>
+            </div>
+
+            <div id="tab-shampoo" class="tab-content">
+                <div class="table-responsive">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr><th style="width: 5%;">No.</th><th style="width: 55%;" class="td-left" data-i18n="th_type">Loại Dịch Vụ</th><th style="width: 20%;" data-i18n="th_duration">Thời Gian</th><th style="width: 20%;" data-i18n="th_price">Giá Trọn Gói</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="td-center srv-no">1</td><td class="td-left"><span class="srv-name" data-i18n="s_vietnam">Gội Đầu Thảo Mộc Việt Nam</span></td><td class="td-center"><span class="srv-time">30min</span></td><td class="td-center"><span class="srv-price">150.000đ <span>($7)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">2</td><td class="td-left"><span class="srv-name" data-i18n="s_shampoo_head">Gội Đầu & Massage Đầu-Vai-Cổ</span></td><td class="td-center"><span class="srv-time">60min</span></td><td class="td-center"><span class="srv-price">300.000đ <span>($13)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">3</td><td class="td-left"><span class="srv-name" data-i18n="s_combo_shampoo">Combo Gội Đầu, Massage Đầu-Vai-Cổ & Tay</span></td><td class="td-center"><span class="srv-time">90min</span></td><td class="td-center"><span class="srv-price">450.000đ <span>($20)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">4</td><td class="td-left"><span class="srv-name" data-i18n="s_facial">Massage Thư Giãn Da Mặt</span></td><td class="td-center"><span class="srv-time">30min</span></td><td class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">5</td><td class="td-left"><span class="srv-name" data-i18n="s_facial_treatment">Massage Chăm Sóc Da Mặt Chuyên Sâu</span></td><td class="td-center"><span class="srv-time">60min</span></td><td class="td-center"><span class="srv-price">350.000đ <span>($15)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">6</td><td class="td-left"><span class="srv-name" data-i18n="s_facial_head">Chăm Sóc Da Mặt Chuyên Sâu + Massage Đầu-Vai-Cổ</span></td><td class="td-center"><span class="srv-time">90min</span></td><td class="td-center"><span class="srv-price">500.000đ <span>($22)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">7</td><td class="td-left"><span class="srv-name" data-i18n="s_ear_mini">Lấy Ráy Tai + Massage Mini</span></td><td class="td-center"><span class="srv-time">30min</span></td><td class="td-center"><span class="srv-price">150.000đ <span>($7)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">8</td><td class="td-left"><span class="srv-name" data-i18n="s_ear_shaving">Lấy Ráy Tai, Cạo Mặt, Đắp Mặt Nạ & Massage</span></td><td class="td-center"><span class="srv-time">45min</span></td><td class="td-center"><span class="srv-price">220.000đ <span>($10)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">9</td><td class="td-left"><span class="srv-name" data-i18n="s_heel">Chà Gót Chân Tẩy Tế Bào Chết</span></td><td class="td-center"><span class="srv-time">30min</span></td><td class="td-center"><span class="srv-price">200.000đ <span>($9)</span></span></td></tr>
+                            <tr><td class="td-center srv-no">10</td><td class="td-left"><span class="srv-name" data-i18n="s_combo_foot_heel">Combo (Tặng Mặt Nạ) Massage Chân & Chà Gót</span></td><td class="td-center"><span class="srv-time">60/90/120m</span></td><td class="td-center"><span class="srv-price">300k - 530k</span></td></tr>
+                            <tr><td class="td-center srv-no">11</td><td class="td-left"><span class="srv-name" data-i18n="s_combo_foot_shampoo">Combo (Tặng Mặt Nạ) Massage Chân & Gội Đầu</span></td><td class="td-center"><span class="srv-time">60/90/120m</span></td><td class="td-center"><span class="srv-price">300k - 530k</span></td></tr>
+                            <tr><td class="td-center srv-no">12</td><td class="td-left"><span class="srv-name" data-i18n="s_combo_foot_ear">Combo Massage Chân & Lấy Ráy Tai</span></td><td class="td-center"><span class="srv-time">60/90/120m</span></td><td class="td-center"><span class="srv-price">300k - 530k</span></td></tr>
+                            <tr><td class="td-center srv-no">13</td><td class="td-left"><span class="srv-name" data-i18n="s_combo_foot_facial">Combo Massage Chân & Massage Da Mặt</span></td><td class="td-center"><span class="srv-time">90min/120m</span></td><td class="td-center"><span class="srv-price">430k - 530k</span></td></tr>
+                            <tr><td class="td-center srv-no">14</td><td class="td-left"><span class="srv-name" data-i18n="s_combo_shampoo_facial">Combo (Tặng Mặt Nạ) Gội Đầu & Massage Da Mặt</span></td><td class="td-center"><span class="srv-time">60/90/120m</span></td><td class="td-center"><span class="srv-price">330k - 550k</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="menu-note"><p data-i18n="menu_tips">Giá Này Đã Bao Gồm Tiền Tip</p></div>
+            </div>
+        </div>
+    </section>
+    <section id="bestsellers" class="bestseller-section">
+        <div class="bs-header container">
+            <span class="grid-subtitle" data-i18n="bs_sub">Lựa Chọn Hàng Đầu</span>
+            <h2 class="grid-main-title serif-font" data-i18n="bs_title">Top Dịch Vụ Được Yêu Thích Nhất</h2>
+            <p class="bs-desc" data-i18n="bs_desc">Những liệu trình mang tính biểu tượng của IKIGAI Spa Center. Sự kết hợp hoàn hảo giữa kỹ thuật chuyên sâu và thảo dược thiên nhiên.</p>
+        </div>
+
+        <div class="bs-grid">
+            
+            <div class="bs-card">
+                <h3 class="bs-title" data-i18n="bs_card1_title">Massage Body<br>Đá Nóng</h3>
+                <div class="bs-time"><i>⏱</i> <span data-i18n="bs_card1_time">90 Phút</span></div>
+                <div class="bs-price">
+                    <span class="amount">480.000</span><span class="currency">đ</span>
+                    <span class="usd" data-i18n="bs_card1_usd">(Khoảng $21 - Giá Dùng Dầu)</span>
+                </div>
+                <ul class="bs-features">
+                    <li><strong style="color: var(--gold-light);" data-i18n="bs_card1_f1">Giải tỏa căng thẳng cơ bắp sâu</strong></li>
+                    <li data-i18n="bs_card1_f2">Sử dụng sức nóng đá núi lửa đả thông kinh lạc.</li>
+                    <li data-i18n="bs_card1_f3">Kết hợp tinh dầu trơn massage mượt mà.</li>
+                    <li data-i18n="bs_card1_f4">Mang lại giấc ngủ sâu sau liệu trình.</li>
+                    <li data-i18n="bs_tip_included" style="color: var(--gold-primary); font-weight: 600;">Giá đã bao gồm tiền Tip</li>
+                </ul>
+                <div class="bs-action">
+                    <button class="bs-btn-full" onclick="scrollToBooking()" data-i18n="btn_book_now">Đặt Lịch Ngay</button>
+                </div>
+            </div>
+
+            <div class="bs-card popular">
+                <div class="bs-badge" data-i18n="bs_badge">★ BEST SELLER ★</div>
+                <h3 class="bs-title" data-i18n="bs_card2_title">Massage Thái<br>Kèm Tinh Dầu</h3>
+                <div class="bs-time"><i>⏱</i> <span data-i18n="bs_card2_time">90 Phút</span></div>
+                <div class="bs-price">
+                    <span class="amount">530.000</span><span class="currency">đ</span>
+                    <span class="usd" data-i18n="bs_card2_usd">(Khoảng $23 - Giá Dùng Dầu)</span>
+                </div>
+                <ul class="bs-features">
+                    <li><strong style="color: var(--gold-light);" data-i18n="bs_card2_f1">Sự pha trộn hoàn hảo tại IKIGAI</strong></li>
+                    <li data-i18n="bs_card2_f2">Kỹ thuật kéo giãn cơ mạnh mẽ chuẩn Thái.</li>
+                    <li data-i18n="bs_card2_f3">Vuốt tinh dầu êm ái dọc sống lưng.</li>
+                    <li data-i18n="bs_card2_f4">Giải phóng ách tắc khí huyết, phục hồi 100% năng lượng.</li>
+                    <li data-i18n="bs_tip_included" style="color: var(--gold-primary); font-weight: 600;">Giá đã bao gồm tiền Tip</li>
+                </ul>
+                <div class="bs-action">
+                    <button class="bs-btn-full" onclick="scrollToBooking()" data-i18n="btn_book_now">Đặt Lịch Ngay</button>
+                </div>
+            </div>
+
+            <div class="bs-card">
+                <h3 class="bs-title" data-i18n="bs_card3_title">Combo Đá Nóng<br>& Gội Đầu</h3>
+                <div class="bs-time"><i>⏱</i> <span data-i18n="bs_card3_time">120 Phút</span></div>
+                <div class="bs-price">
+                    <span class="amount">530.000</span><span class="currency">đ</span>
+                    <span class="usd" data-i18n="bs_card3_usd">(Khoảng $23)</span>
+                </div>
+                <ul class="bs-features">
+                    <li><strong style="color: var(--gold-light);" data-i18n="bs_card3_f1">Gói chăm sóc tiết kiệm hoàn hảo</strong></li>
+                    <li data-i18n="bs_card3_f2">90 Phút Massage toàn thân bằng Đá nóng.</li>
+                    <li data-i18n="bs_card3_f3">30 Phút gội đầu massage da đầu xua tan đau đầu.</li>
+                    <li data-i18n="bs_card3_f4">Tiết kiệm thời gian, tận hưởng tối đa.</li>
+                    <li data-i18n="bs_tip_included" style="color: var(--gold-primary); font-weight: 600;">Giá đã bao gồm tiền Tip</li>
+                </ul>
+                <div class="bs-action">
+                    <button class="bs-btn-full" onclick="scrollToBooking()" data-i18n="btn_book_now">Đặt Lịch Ngay</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="gallery" class="ikigai-gallery-section">
+        <div class="gallery-header container">
+            <span class="grid-subtitle" data-i18n="gal_sub">Không Gian Chữa Lành</span>
+            <h2 class="grid-main-title serif-font" data-i18n="gal_title">Góc Nhỏ Tĩnh Lặng Giữa Phố Thị</h2>
+            <p class="grid-desc" data-i18n="gal_desc">Từng chi tiết tại IKIGAI đều được chăm chút tỉ mỉ. Gam màu trầm ấm kết hợp cùng ánh đèn vàng dịu nhẹ và hương thảo mộc nguyên bản sẽ vỗ về mọi giác quan của bạn ngay từ giây phút bước vào.</p>
+        </div>
+
+        <div class="slider-container">
+            <button class="nav-arrow nav-prev" onclick="scrollGallery(-1)">&#10094;</button>
+
+            <div class="gallery-track" id="ikigaiGallery">
+                
+                <div class="gallery-slide">
+                    <div class="gallery-slide-inner">
+                        <img src="IMG_0366_VSCO.JPG" alt="Sảnh Lễ Tân IKIGAI">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-caption">
+                            <h4 data-i18n="gal_img1_title">Khu Vực Lễ Tân</h4>
+                            <p data-i18n="gal_img1_desc">Nơi bạn thưởng thức trà thảo mộc trước liệu trình.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-slide">
+                    <div class="gallery-slide-inner">
+                        <img src="IMG_0368_VSCO.JPG" alt="Phòng Massage Trị Liệu">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-caption">
+                            <h4 data-i18n="gal_img2_title">Phòng Trị Liệu</h4>
+                            <p data-i18n="gal_img2_desc">Không gian tĩnh lặng, đảm bảo sự riêng tư tuyệt đối.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-slide">
+                    <div class="gallery-slide-inner">
+                        <img src="IMG_0369_VSCO.JPG" alt="Khu Vực Gội Đầu Dưỡng Sinh">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-caption">
+                            <h4 data-i18n="gal_img3_title">Gội Đầu Dưỡng Sinh</h4>
+                            <p data-i18n="gal_img3_desc">Khu vực mộc mạc, văng vẳng tiếng nhạc thiền.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-slide">
+                    <div class="gallery-slide-inner">
+                        <img src="ruachan.jpeg" alt="Phòng Ngâm Chân Trị Liệu">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-caption">
+                            <h4 data-i18n="gal_img4_title">Ngâm Chân Trị Liệu</h4>
+                            <p data-i18n="gal_img4_desc">Góc ngâm chân êm ái, nâng niu bàn chân mệt mỏi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-slide">
+                    <div class="gallery-slide-inner">
+                        <img src="nailroom.jpeg" alt="Khu Vực Làm Nail">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-caption">
+                            <h4 data-i18n="gal_img5_title">Khu Vực Làm Nail</h4>
+                            <p data-i18n="gal_img5_desc">Hàng trăm màu sơn Gel cao cấp nhập khẩu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-slide">
+                    <div class="gallery-slide-inner">
+                        <img src="thaomoc.jpeg" alt="Chi Tiết Thảo Mộc">
+                        <div class="gallery-overlay"></div>
+                        <div class="gallery-caption">
+                            <h4 data-i18n="gal_img6_title">Chi Tiết Thảo Mộc</h4>
+                            <p data-i18n="gal_img6_desc">Nguyên liệu thảo mộc chọn lọc kỹ lưỡng, an toàn cho da.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="nav-arrow nav-next" onclick="scrollGallery(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="blog" class="news-section">
+        <div class="news-header container">
+            <span class="grid-subtitle" data-i18n="blog_sub">Góc Chia Sẻ</span>
+            <h2 class="grid-main-title serif-font" data-i18n="blog_title">Cẩm Nang Sức Khỏe & Làm Đẹp</h2>
+            <p class="grid-desc" data-i18n="blog_desc">Khám phá bí quyết chăm sóc cơ thể chuyên sâu từ các kỹ thuật viên tại IKIGAI.</p>
+        </div>
+
+        <div class="news-grid">
+            
+            <article class="post-card featured-post" onclick="openModal('post1')">
+                <div class="post-thumb">
+                    <span class="post-cat" data-i18n="cat_spa">Kiến Thức</span>
+                    <img src="HotstoneBD.png" alt="Massage Đá Nóng">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span data-i18n="post_date1"><i>📅</i> 13 Tháng 3, 2026</span>
+                        <span data-i18n="post_author"><i>👤</i> Bởi IKIGAI Team</span>
+                    </div>
+                    <h3 class="post-title" data-i18n="post1_title">Top 5 Lý Do Bạn Nên Trải Nghiệm Massage Đá Nóng Tại IKIGAI</h3>
+                    <p class="post-excerpt" data-i18n="post1_excerpt">Massage đá nóng không chỉ là trải nghiệm thư giãn xa xỉ, mà còn mang lại vô vàn lợi ích...</p>
+                    <span class="read-more" data-i18n="btn_read_more">Đọc Tiếp ➔</span>
+                </div>
+            </article>
+
+            <div class="post-list">
+                
+                <article class="list-post post-card" onclick="openModal('post2')">
+                    <div class="post-thumb">
+                        <span class="post-cat" data-i18n="cat_health">Sức Khỏe</span>
+                        <img src="VCL.webp" alt="Đau cổ vai gáy">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta"><span data-i18n="post_date2"><i>📅</i> 10 Tháng 3, 2026</span></div>
+                        <h4 class="post-title serif-font" data-i18n="post2_title">Bí Quyết Giảm Đau Cổ Vai Gáy Hiệu Quả Cho Dân Văn Phòng</h4>
+                    </div>
+                </article>
+
+                <article class="list-post post-card" onclick="openModal('post3')">
+                    <div class="post-thumb">
+                        <span class="post-cat" data-i18n="cat_beauty">Làm Đẹp</span>
+                        <img src="Shampoo.webp" alt="Gội đầu dưỡng sinh">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta"><span data-i18n="post_date3"><i>📅</i> 05 Tháng 3, 2026</span></div>
+                        <h4 class="post-title serif-font" data-i18n="post3_title">Gội Đầu Dưỡng Sinh Khác Gì Với Gội Đầu Thông Thường?</h4>
+                    </div>
+                </article>
+
+                <article class="list-post post-card" onclick="openModal('post4')">
+                    <div class="post-thumb">
+                        <span class="post-cat" data-i18n="cat_tips">Mẹo Hay</span>
+                        <img src="FootMS.png" alt="Ngâm chân thảo mộc">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta"><span data-i18n="post_date4"><i>📅</i> 01 Tháng 3, 2026</span></div>
+                        <h4 class="post-title serif-font" data-i18n="post4_title">7 Lợi Ích Tuyệt Vời Của Việc Ngâm Chân Bằng Thảo Mộc Mỗi Tối</h4>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="newsModal">
+        <div class="modal-content-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <img src="" id="modalImg" class="modal-body-img" alt="Blog Image">
+            <h2 id="modalTitle" class="modal-body-title serif-font"></h2>
+            <div class="modal-body-meta">
+                <span id="modalDate"><i>📅</i> </span>
+                <span data-i18n="post_author"><i>👤</i> Bởi IKIGAI Team</span>
+            </div>
+            <div id="modalText" class="modal-body-text">
+                </div>
+        </div>
+    </div>
+    <section id="booking" class="booking-section">
+        <div class="booking-container">
+            
+            <div class="booking-info">
+                <h3 class="serif-font" data-i18n="book_title">Khởi Đầu Hành Trình Thư Giãn</h3>
+                <p data-i18n="book_desc">Để lại thông tin, đội ngũ IKIGAI sẽ liên hệ ngay để xác nhận lịch hẹn.</p>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h4 data-i18n="book_hotline_text">Hotline Đặt Lịch</h4>
+                        <span class="serif-font">0784 170 170</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4 data-i18n="book_address_text">Địa Chỉ Spa</h4>
+                        <span class="serif-font" style="font-size: 16px;" data-i18n="book_address">170 Trần Phú, Đà Nẵng</span>
+                    </div>
+                </div>
+
+                <div class="offer-box">
+                    <h4 class="serif-font" data-i18n="book_offer_title">🌟 ƯU ĐÃI ĐẶC QUYỀN</h4>
+                    <p data-i18n="book_offer_desc">Đặt lịch online ngay hôm nay để được ưu tiên xếp phòng VIP. Các dịch vụ đã bao gồm Tip.</p>
+                </div>
+            </div>
+
+            <div class="booking-form-wrap">
+                <h3 data-i18n="form_title">ĐIỀN THÔNG TIN ĐẶT LỊCH</h3>
+                <form id="ikigaiBookingForm">
+                    <div class="form-grid">
+                        
+                        <div class="form-group form-full">
+                            <label data-i18n="form_name">Họ và Tên (*)</label>
+                            <input type="text" id="cusName" class="form-control" placeholder="Ví dụ: Nguyễn Văn A..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="form_phone">Số Điện Thoại / Zalo (*)</label>
+                            <input type="tel" id="cusPhone" class="form-control" placeholder="0784..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="form_email">Email của bạn (*)</label>
+                            <input type="email" id="cusEmail" class="form-control" placeholder="Để nhận email xác nhận..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="form_guests">Số Lượng Khách</label>
+                            <input type="number" id="cusGuest" class="form-control" min="1" max="20" value="1" required>
+                        </div>
+
+                        <div class="form-group form-full select-wrapper">
+                            <label data-i18n="form_service">Dịch Vụ Quan Tâm</label>
+                            <select id="cusService" class="form-control">
+                                <option value="none" data-i18n="form_srv_opt0">-- Vui lòng chọn dịch vụ --</option>
+                                <option value="hot_stone" data-i18n="form_srv_opt1">Massage Đá Nóng (Best Seller)</option>
+                                <option value="thai_oil" data-i18n="form_srv_opt2">Massage Thái & Dầu (Best Seller)</option>
+                                <option value="combo_full" data-i18n="form_srv_opt3">Combo VIP Trọn Gói</option>
+                                <option value="shampoo" data-i18n="form_srv_opt4">Gội Đầu & Làm Mặt</option>
+                                <option value="nail" data-i18n="form_srv_opt5">Chăm sóc Móng/Chà Gót</option>
+                                <option value="other" data-i18n="form_srv_opt6">Cần tư vấn thêm</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="form_date">Ngày Dự Kiến</label>
+                            <input type="date" id="cusDate" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="form_time">Giờ Dự Kiến</label>
+                            <input type="time" id="cusTime" class="form-control" required>
+                        </div>
+                        
+                    </div>
+                    
+                    <button type="submit" class="btn-gold btn-submit-booking">
+                        <span data-i18n="form_btn_submit">XÁC NHẬN ĐẶT LỊCH NGAY</span> ➔
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <div class="icon"><img src="ikigailogo.png" alt="IKIGAI Logo"></div>
+                    <div class="text">
+                        <h3 class="serif-font">IKIGAI SPA</h3>
+                        <small>Center & Wellness</small>
+                    </div>
+                </div>
+                <p class="footer-desc" data-i18n="footer_desc">Mang đến trải nghiệm trị liệu 5 sao giữa lòng phố biển Đà Nẵng. Không gian tĩnh lặng, dịch vụ tận tâm và mức giá minh bạch (Tip Included).</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/ikigaispacenter" target="_blank" title="Facebook">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" title="Instagram">IG</a>
+                </div>
+            </div>
+
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_explore">Khám Phá</h4>
+                <ul class="footer-list">
+                    <li><a href="#story" data-i18n="footer_link1">Về IKIGAI Spa</a></li>
+                    <li><a href="#services" data-i18n="footer_link2">Dịch vụ nổi bật</a></li>
+                    <li><a href="#menu" data-i18n="footer_link3">Bảng giá chi tiết</a></li>
+                    <li><a href="#bestsellers" data-i18n="footer_link4">Top dịch vụ yêu thích</a></li>
+                    <li><a href="#blog" data-i18n="footer_link5">Cẩm nang làm đẹp</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_contact">Thông Tin Liên Hệ</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i>📍</i>
+                        <span data-i18n="footer_address">170 Trần Phú, Phước Ninh, Hải Châu, Đà Nẵng</span>
+                    </li>
+                    <li>
+                        <i>📞</i>
+                        <span><a href="tel:0784170170" style="color: inherit;">0784 170 170</a><br><span data-i18n="footer_hotline_sub">(Hỗ trợ 24/7)</span></span>
+                    </li>
+                    <li>
+                        <i>🕒</i>
+                        <span><span data-i18n="footer_open_title">Giờ mở cửa:</span><br><span data-i18n="footer_open_time">09:00 - 23:00 (Thứ 2 - CN)</span></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer_map">📍 Bản Đồ - IKIGAI SPA CENTER</h4>
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.226068683866!2d108.22163292359978!3d16.065939010244012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142197c3dc00309%3A0x25d9e61c2e355057!2sIKIGAI%20SPA%20CENTER!5e0!3m2!1sen!2sus!4v1773636129240!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="copyright" data-i18n="footer_copyright">
+            © 2026 IKIGAI Spa Center. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div class="floating-left">
+        <a href="https://www.facebook.com/ikigaispacenter" target="_blank" class="float-btn facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://wa.me/84784170170" target="_blank" class="float-btn whatsapp" title="WhatsApp">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </a>
+        <a href="https://line.me/ti/p/hK-lEUQxmS" target="_blank" class="float-btn line" title="Chat LINE">
+            <img src="line.webp" alt="LINE" style="width: 28px; height: 28px; object-fit: contain;">
+        </a>
+        <a href="https://zalo.me/0784170170" target="_blank" class="float-btn zalo" title="Chat Zalo">Z</a>
+        <a href="http://pf.kakao.com/PAMSPA123" target="_blank" class="float-btn kakao" title="KakaoTalk">
+            <span style="font-size: 18px;">💬</span> 톡문의
+        </a>
+    </div>
+
+    <div class="floating-right">
+        <a href="tel:0784170170" class="float-btn-call" title="Gọi Hotline Đặt Lịch">📞</a>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // THAY "YOUR_PUBLIC_KEY" BẰNG PUBLIC KEY LẤY TỪ TÀI KHOẢN EMAILJS CỦA BẠN
+            emailjs.init("QytZ-2lORXA7OzDuC"); 
+        })();
+    </script>
+
+    <script>
+        // ==========================================
+        // A. TỪ ĐIỂN ĐA NGÔN NGỮ (5 THỨ TIẾNG FULL)
+        // ==========================================
+        const translations = {
+            vi: {
+                "top_address": "170 Trần Phú, Phước Ninh, Hải Châu, Đà Nẵng", "top_time": "Mở cửa: 09:00 - 23:00",
+                "nav_home": "Trang Chủ", "nav_story": "Câu Chuyện", "nav_services": "Dịch Vụ", "nav_menu": "Bảng Giá", "nav_blog": "Cẩm Nang", "btn_booking": "Đặt Lịch Ngay", "btn_explore": "Khám Phá Menu", "btn_read_more": "Đọc Tiếp ➔", "btn_book_now": "Đặt Lịch Ngay",
+                "hero_title": "Nghệ Thuật Trị Liệu Thân Tâm", "hero_desc": "Được thiết kế với tiêu chuẩn 5 sao, IKIGAI Spa Center mang đến không gian thư giãn tĩnh lặng giữa lòng Đà Nẵng, nơi mọi muộn phiền dừng lại sau cánh cửa.",
+                "hero_feature1": "Massage Trị Liệu Đá Nóng Chuyên Sâu", "hero_feature2": "Kéo Giãn Cơ Chuẩn Thái Lan", "hero_feature3": "Gội Đầu Dưỡng Sinh & Chăm Sóc Da", "hero_feature4": "100% Không Phát Sinh Tiền Tip",
+                "hero_img1_label": "Hot Stone<br>Body Massage", "hero_img2_label": "Traditional<br>Thai Massage", "hero_img3_label": "Herbal &<br>Relaxation",
+                
+                "story_sub": "Triết Lý Cân Bằng", "story_title": "Hành Trình Tìm Lại Lẽ Sống Của Chính Mình", "story_quote": "\"Trong văn hóa Nhật Bản, Ikigai mang ý nghĩa: Mỗi sớm mai thức giấc, bạn biết mình đang sống vì điều gì. Đó là sự giao thoa hoàn hảo giữa đam mê, sứ mệnh và giá trị bạn mang lại.\"",
+                "story_p1": "Ra đời với khát vọng tạo nên một chốn nương náu bình yên giữa lòng Đà Nẵng nhộn nhịp, IKIGAI Spa Center không chỉ đơn thuần cung cấp các liệu pháp Massage. Chúng tôi tạo ra một \"nghi thức\" chữa lành toàn diện.", "story_p2": "Sở hữu vị trí đắc địa ngay trung tâm thành phố (170 Trần Phú), chỉ cách Nhà thờ Con Gà vài bước chân. Bước qua cánh cửa IKIGAI, bạn sẽ bỏ lại mọi ồn ào phố thị. Một không gian phảng phất hương thảo mộc đang chờ đón bạn.",
+                
+                "video_sub": "Hành Trình Trực Quan", "video_title": "Cảm Nhận IKIGAI Qua Từng Thước Phim",
+
+                "grid_sub": "Dịch Vụ Nổi Bật", "grid_title": "Tinh Hoa Trị Liệu Tại IKIGAI", "grid_desc": "Từ những bài quy trình Massage trị liệu chuyên sâu đánh tan nhức mỏi, đến các gói gội đầu dưỡng sinh mộc mạc. Dưới đây là những dịch vụ tinh túy nhất.",
+                "srv_box_1": "Massage Chân Đá Nóng", "srv_box_2": "Massage Toàn Thân Đá Nóng", "srv_box_3": "Massage Thái Truyền Thống", "srv_box_4": "Massage Thái Kết Hợp Tinh Dầu", "srv_box_5": "Massage Cho Mẹ Bầu", "srv_box_6": "Massage Bốn Tay", "srv_box_7": "Massage Cổ, Vai, Gáy", "srv_box_8": "Giác Hơi Trị Liệu", "srv_box_9": "Gội Đầu Dưỡng Sinh", "srv_box_10": "Combo Gội Đầu & Chăm Sóc Da", "srv_box_11": "Lấy Ráy Tai & Cạo Mặt", "srv_box_12": "Chà Gót & Massage Chân", "srv_box_13": "Combo Dịch Vụ VIP", "srv_box_14": "Làm Móng & Sơn Gel", "srv_box_15": "Combo Chăm Sóc Gót Chân", "srv_box_16": "Massage Chăm Sóc Da Mặt",
+
+                "menu_sub": "Bảng Giá Dịch Vụ", "menu_title": "IKIGAI Spa Menu", "menu_desc": "Mức giá minh bạch, đẳng cấp 5 sao và hoàn toàn không phát sinh chi phí.",
+                "tab_massage": "Massage", "tab_combo": "Combo Trọn Gói", "tab_nail": "Làm Móng & Chà Gót", "tab_shampoo": "Gội Đầu & Làm Mặt", "menu_tips": "Giá Này Đã Bao Gồm Tiền Tip",
+                "th_type": "Loại Dịch Vụ", "th_duration": "Thời Gian", "th_price": "Giá Trọn Gói", "th_price_oil": "Giá (Dùng Dầu)", "th_price_cream": "Giá (Dùng Kem)", "th_hand_foot": "Chỉ Tay / Chân", "th_hand_and_foot": "Cả Tay và Chân",
+                
+                "m_hot_stone_foot": "Massage Chân Bằng Đá Nóng", "m_hot_stone_body": "Massage Toàn Thân Bằng Đá Nóng", "m_thai": "Massage Kéo Giãn Thái Lan", "m_thai_oil": "Massage Thái Kết Hợp Tinh Dầu", "m_prenatal": "Massage Dành Cho Mẹ Bầu", "m_four_hands": "Massage Bốn Tay", "m_back_shoulder": "Massage Cổ, Vai và Gáy", "m_cupping": "Giác Hơi Trị Liệu", "m_combo_hs_hw_60": "Combo Massage Đá Nóng 60p + Gội Đầu 30p", "m_combo_hs_hw_90": "Combo Massage Đá Nóng 90p + Gội Đầu 30p", "m_combo_hs_hw_120": "Combo Massage Đá Nóng 120p + Gội Đầu 30p",
+                "c_full": "Combo VIP Trọn Gói", "c_full_desc": "Cắt móng, Cạo mặt, Lấy ráy tai, Rửa mặt, Đắp mặt nạ, Gội đầu 2 lần, Xả tóc, Massage đầu-vai-cổ mini, Sấy tóc, Tinh chất dưỡng, Nước hoa hồng.", "c_full_face": "Combo VIP + Massage Mặt", "c_full_face_back": "Combo VIP + Massage Mặt + Lưng/Chân", "c_full_face_back_heel": "Combo VIP + Massage Mặt + Lưng/Chân + Chà Gót 30p", "c_note_facial": "Nếu không muốn chăm sóc da mặt, vui lòng thông báo trước.",
+                "n_cut_cuticles": "Cắt Da Thừa, Cắt & Dũa Móng", "n_gel_polish": "Sơn Móng Gel", "n_gel_removal": "Tháo Móng Gel", "n_fake_nails": "Nối Móng Giả", "n_nails_cut_gel": "Cắt Móng + Chăm Sóc Da + Sơn Gel", "n_gel_nail_art": "Trang Trí Móng Gel", "n_level_up": "Vẽ Móng Cao Cấp & Đính Đá", "n_kid_nail": "Làm Móng Cho Bé", "n_kid_nail_level": "Làm Móng Bé & Đính Đá", "n_heel_scrub": "Chà Gót Chân Tẩy Tế Bào Chết", "n_nail_care_combo": "Combo Làm Móng + Tẩy Tế Bào Chết Chân", "n_foot_30_nail": "Massage Chân (30ph) + Cắt Móng + Sơn Gel", "n_foot_60_nail": "Massage Chân (60ph) + Cắt Móng + Sơn Gel", "n_foot_90_nail": "Massage Chân (90ph) + Cắt Móng + Sơn Gel",
+                "s_vietnam": "Gội Đầu Thảo Mộc Việt Nam", "s_shampoo_head": "Gội Đầu & Massage Đầu-Vai-Cổ", "s_combo_shampoo": "Combo Gội Đầu & Massage Tay", "s_facial": "Massage Thư Giãn Da Mặt", "s_facial_treatment": "Massage Chăm Sóc Da Mặt", "s_facial_head": "Chăm Sóc Da Mặt + Massage Đầu-Vai", "s_ear_mini": "Lấy Ráy Tai + Massage Mini", "s_ear_shaving": "Lấy Ráy Tai, Cạo Mặt, Đắp Mặt Nạ", "s_heel": "Chà Gót Chân", "s_combo_foot_heel": "Combo (Tặng Mặt Nạ) Massage Chân & Chà Gót", "s_combo_foot_shampoo": "Combo (Tặng Mặt Nạ) Massage Chân & Gội Đầu", "s_combo_foot_ear": "Combo Massage Chân & Lấy Ráy Tai", "s_combo_foot_facial": "Combo Massage Chân & Massage Mặt", "s_combo_shampoo_facial": "Combo (Tặng Mặt Nạ) Gội Đầu & Massage Mặt",
+
+                "bs_sub": "Lựa Chọn Hàng Đầu", "bs_title": "Top Dịch Vụ Được Yêu Thích Nhất", "bs_desc": "Những liệu trình mang tính biểu tượng của IKIGAI Spa Center. Sự kết hợp hoàn hảo giữa kỹ thuật và thảo dược.", "bs_badge": "★ BEST SELLER ★", "bs_tip_included": "Giá đã bao gồm tiền Tip",
+                "bs_card1_title": "Massage Body<br>Đá Nóng", "bs_card1_time": "90 Phút", "bs_card1_usd": "(Khoảng $21 - Giá Dầu)", "bs_card1_f1": "Giải tỏa căng thẳng cơ bắp", "bs_card1_f2": "Sử dụng sức nóng đá núi lửa.", "bs_card1_f3": "Kết hợp tinh dầu trơn mượt mà.", "bs_card1_f4": "Mang lại giấc ngủ sâu.",
+                "bs_card2_title": "Massage Thái<br>Kèm Tinh Dầu", "bs_card2_time": "90 Phút", "bs_card2_usd": "(Khoảng $23 - Giá Dầu)", "bs_card2_f1": "Sự pha trộn hoàn hảo", "bs_card2_f2": "Kỹ thuật kéo giãn cơ mạnh mẽ.", "bs_card2_f3": "Vuốt tinh dầu dọc sống lưng.", "bs_card2_f4": "Phục hồi 100% năng lượng.",
+                "bs_card3_title": "Combo Đá Nóng<br>& Gội Đầu", "bs_card3_time": "120 Phút", "bs_card3_usd": "(Khoảng $23)", "bs_card3_f1": "Gói chăm sóc tiết kiệm", "bs_card3_f2": "90p Massage toàn thân Đá nóng.", "bs_card3_f3": "30p gội đầu massage xua tan đau đầu.", "bs_card3_f4": "Tận hưởng tối đa tinh hoa Spa.",
+
+                "gal_sub": "Không Gian Chữa Lành", "gal_title": "Góc Nhỏ Tĩnh Lặng Giữa Phố Thị", "gal_desc": "Từng chi tiết tại IKIGAI đều được chăm chút tỉ mỉ. Gam màu trầm ấm kết hợp cùng ánh đèn dịu nhẹ.",
+                "gal_img1_title": "Khu Vực Lễ Tân", "gal_img1_desc": "Nơi bạn thưởng thức trà thảo mộc.", "gal_img2_title": "Phòng Trị Liệu", "gal_img2_desc": "Không gian tĩnh lặng, riêng tư.", "gal_img3_title": "Gội Đầu Dưỡng Sinh", "gal_img3_desc": "Văng vẳng tiếng nhạc thiền.", "gal_img4_title": "Ngâm Chân Trị Liệu", "gal_img4_desc": "Góc ngâm chân êm ái.", "gal_img5_title": "Khu Vực Làm Nail", "gal_img5_desc": "Sơn Gel cao cấp nhập khẩu.", "gal_img6_title": "Chi Tiết Thảo Mộc", "gal_img6_desc": "Nguyên liệu an toàn cho da.",
+
+                "blog_sub": "Góc Chia Sẻ", "blog_title": "Cẩm Nang Sức Khỏe & Làm Đẹp", "blog_desc": "Khám phá bí quyết chăm sóc cơ thể chuyên sâu từ IKIGAI.", "cat_spa": "Kiến Thức", "cat_health": "Sức Khỏe", "cat_beauty": "Làm Đẹp", "cat_tips": "Mẹo Hay",
+                "post_date1": "<i>📅</i> 13 Tháng 3, 2026", "post_date2": "<i>📅</i> 10 Tháng 3, 2026", "post_date3": "<i>📅</i> 05 Tháng 3, 2026", "post_date4": "<i>📅</i> 01 Tháng 3, 2026", "post_author": "<i>👤</i> Bởi IKIGAI Team",
+                "post1_title": "Top 5 Lý Do Bạn Nên Trải Nghiệm Massage Đá Nóng Tại IKIGAI", "post1_excerpt": "Massage đá nóng không chỉ là trải nghiệm thư giãn xa xỉ, mà còn mang lại vô vàn lợi ích...",
+                "post2_title": "Bí Quyết Giảm Đau Cổ Vai Gáy Cho Dân Văn Phòng", "post3_title": "Gội Đầu Dưỡng Sinh Khác Gì Gội Đầu Thông Thường?", "post4_title": "7 Lợi Ích Của Việc Ngâm Chân Bằng Thảo Mộc",
+
+                "book_title": "Khởi Đầu Hành Trình Thư Giãn", "book_desc": "Để lại thông tin, đội ngũ IKIGAI sẽ liên hệ ngay để xác nhận.", "book_hotline_text": "Hotline Đặt Lịch", "book_address_text": "Địa Chỉ Spa", "book_address": "170 Trần Phú, Phước Ninh, Hải Châu, Đà Nẵng",
+                "book_offer_title": "🌟 ƯU ĐÃI ĐẶC QUYỀN", "book_offer_desc": "Đặt lịch online để được ưu tiên xếp phòng VIP. Các dịch vụ đã bao gồm Tip.",
+                "form_title": "ĐIỀN THÔNG TIN ĐẶT LỊCH", "form_name": "Họ và Tên (*)", "form_phone": "Số Điện Thoại / Zalo (*)", "form_email": "Email của bạn (*)", "form_guests": "Số Lượng Khách", "form_service": "Dịch Vụ Quan Tâm",
+                "form_srv_opt0": "-- Vui lòng chọn dịch vụ --", "form_srv_opt1": "Massage Đá Nóng (Best Seller)", "form_srv_opt2": "Massage Thái & Dầu (Best Seller)", "form_srv_opt3": "Combo VIP Trọn Gói", "form_srv_opt4": "Gội Đầu & Làm Mặt", "form_srv_opt5": "Chăm sóc Móng/Chà Gót", "form_srv_opt6": "Cần tư vấn thêm",
+                "form_date": "Ngày Dự Kiến", "form_time": "Giờ Dự Kiến", "form_btn_submit": "XÁC NHẬN ĐẶT LỊCH NGAY",
+
+                "footer_desc": "Trải nghiệm trị liệu 5 sao giữa lòng Đà Nẵng. Giá minh bạch (Tip Included).", "footer_explore": "Khám Phá", "footer_link1": "Về IKIGAI Spa", "footer_link2": "Dịch vụ nổi bật", "footer_link3": "Bảng giá chi tiết", "footer_link4": "Top yêu thích", "footer_link5": "Cẩm nang",
+                "footer_contact": "Liên Hệ", "footer_address": "170 Trần Phú, Phước Ninh, Hải Châu, Đà Nẵng", "footer_hotline_sub": "(Hỗ trợ 24/7)", "footer_open_title": "Giờ mở cửa:", "footer_open_time": "09:00 - 23:00 (Thứ 2 - CN)", "footer_map": "📍 Bản Đồ - IKIGAI SPA CENTER", "footer_copyright": "© 2026 IKIGAI Spa Center. All Rights Reserved."
+            },
+            en: {
+                "top_address": "170 Tran Phu, Phuoc Ninh, Hai Chau, Da Nang", "top_time": "Open: 09:00 - 23:00",
+                "nav_home": "Home", "nav_story": "Story", "nav_services": "Services", "nav_menu": "Menu", "nav_blog": "Blog", "btn_booking": "Book Now", "btn_explore": "Explore Menu", "btn_read_more": "Read More ➔", "btn_book_now": "Book Now",
+                "hero_title": "The Art of Mind & Body Therapy", "hero_desc": "Designed with 5-star standards, IKIGAI Spa Center offers a tranquil relaxing space...",
+                "hero_feature1": "Intensive Hot Stone Therapy", "hero_feature2": "Traditional Thai Muscle Stretching", "hero_feature3": "Nourishing Shampoo & Facial Care", "hero_feature4": "100% No Hidden Fees (Tip Included)",
+                "hero_img1_label": "Hot Stone<br>Body Massage", "hero_img2_label": "Traditional<br>Thai Massage", "hero_img3_label": "Herbal &<br>Relaxation",
+                "story_sub": "Philosophy of Balance", "story_title": "The Journey to Find Your Reason for Being", "story_quote": "\"In Japanese culture, Ikigai means: Every morning when you wake up, you know what you are living for. It is the perfect intersection of passion, purpose, and the value you bring to the world.\"", "story_p1": "Born with the vision to create a peaceful sanctuary in the bustling heart of Da Nang, IKIGAI Spa Center is more than just a massage provider. We craft a complete healing ritual where every detail is designed to restore both body and soul.", "story_p2": "Located at the prime center of the city (170 Tran Phu), just steps away from the iconic Pink Church, IKIGAI welcomes you to leave the city noise behind. The moment you step through our doors, aromatic herbal scents embrace you, and genuine wellness begins.", "video_sub": "Visual Journey", "video_title": "Experience IKIGAI Through Every Frame",
+                "grid_sub": "Signature Services", "grid_title": "The Essence of IKIGAI Therapy", "grid_desc": "From deep therapeutic massage routines that melt away tension, to luxurious herbal shampoos infused with traditional wisdom. Below are our finest therapeutic offerings.",
+                "srv_box_1": "Hot Stone Foot", "srv_box_2": "Hot Stone Body", "srv_box_3": "Thai Massage", "srv_box_4": "Thai & Oil Massage", "srv_box_5": "Prenatal Massage", "srv_box_6": "Four Hands", "srv_box_7": "Neck, Shoulder", "srv_box_8": "Cupping", "srv_box_9": "Vietnam Shampoo", "srv_box_10": "Shampoo Combo", "srv_box_11": "Ear Cleaning", "srv_box_12": "Rub Heels", "srv_box_13": "VIP Combo", "srv_box_14": "Gel Polish", "srv_box_15": "Foot Scrub", "srv_box_16": "Facial Treatment",
+                "menu_sub": "Service Pricing", "menu_title": "IKIGAI Spa Menu", "menu_desc": "Transparent pricing, 5-star quality, and no hidden fees.", "tab_massage": "Massage", "tab_combo": "Full-Service", "tab_nail": "Nail & Heel", "tab_shampoo": "Shampoo & Face", "menu_tips": "This Price Includes Tips",
+                "th_type": "Type", "th_duration": "Duration", "th_price": "Price", "th_price_oil": "Price (Oil)", "th_price_cream": "Price (Cream)", "th_hand_foot": "Hand/Foot", "th_hand_and_foot": "Hand & Foot",
+                "m_hot_stone_foot": "Hot Stone Foot", "m_hot_stone_body": "Hot Stone Body", "m_thai": "Thai Massage", "m_thai_oil": "Thai & Oil", "m_prenatal": "Prenatal", "m_four_hands": "Four Hands", "m_back_shoulder": "Back, Shoulder", "m_cupping": "Cupping", "m_combo_hs_hw_60": "Hot Stone 60m + Shampoo 30m", "m_combo_hs_hw_90": "Hot Stone 90m + Shampoo 30m", "m_combo_hs_hw_120": "Hot Stone 120m + Shampoo 30m",
+                "c_full": "Combo VIP", "c_full_desc": "Nail Trimming, Facial Shaving, Ear Cleaning, Wash, Mask, Shampoo...", "c_full_face": "Combo VIP + Face", "c_full_face_back": "Combo VIP + Face + Back", "c_full_face_back_heel": "Combo VIP + Face + Heel", "c_note_facial": "If no facial is wanted, please tell us.",
+                "n_cut_cuticles": "Cut Cuticles", "n_gel_polish": "Gel Polish", "n_gel_removal": "Gel Removal", "n_fake_nails": "Fake Nails", "n_nails_cut_gel": "Cut + Gel", "n_gel_nail_art": "Gel Art", "n_level_up": "Swarovski Art", "n_kid_nail": "Kid Nail", "n_kid_nail_level": "Kid Art", "n_heel_scrub": "Heel Scrub", "n_nail_care_combo": "Nail Combo", "n_foot_30_nail": "Foot 30m + Nail", "n_foot_60_nail": "Foot 60m + Nail", "n_foot_90_nail": "Foot 90m + Nail",
+                "s_vietnam": "Vietnam Shampoo", "s_shampoo_head": "Shampoo & Head", "s_combo_shampoo": "Shampoo Combo", "s_facial": "Facial Relax", "s_facial_treatment": "Facial Treatment", "s_facial_head": "Facial + Head", "s_ear_mini": "Ear Cleaning", "s_ear_shaving": "Ear + Shaving", "s_heel": "Heel Scrub", "s_combo_foot_heel": "Foot & Heel", "s_combo_foot_shampoo": "Foot & Shampoo", "s_combo_foot_ear": "Foot & Ear", "s_combo_foot_facial": "Foot & Facial", "s_combo_shampoo_facial": "Shampoo & Facial",
+                "bs_sub": "Customer Favorites", "bs_title": "Our Most Loved Signatures", "bs_desc": "These iconic therapies represent the perfect blend of technique and natural remedies that have touched thousands of lives.", "bs_badge": "★ BEST SELLER ★", "bs_tip_included": "Gratuity already included in price",
+                "bs_card1_title": "Hot Stone<br>Body Massage", "bs_card1_time": "90 Minutes", "bs_card1_usd": "(Approx $21 - Oil)", "bs_card1_f1": "Relieves muscle tension completely", "bs_card1_f2": "Uses premium volcanic stones for deep heat.", "bs_card1_f3": "Combined with smooth therapeutic oil.", "bs_card1_f4": "Promotes deep, restorative sleep.",
+                "bs_card2_title": "Thai Stretch &<br>Oil Fusion", "bs_card2_time": "90 Minutes", "bs_card2_usd": "(Approx $23 - Oil)", "bs_card2_f1": "Perfect harmony of two traditions", "bs_card2_f2": "Powerful stretching unlocks tight muscles.", "bs_card2_f3": "Silky oil strokes along the spine.", "bs_card2_f4": "Complete energy restoration.",
+                "bs_card3_title": "Hot Stone &<br>Herbal Shampoo", "bs_card3_time": "120 Minutes", "bs_card3_usd": "(Approx $23)", "bs_card3_f1": "Best value wellness package", "bs_card3_f2": "90 mins full body Hot Stone therapy.", "bs_card3_f3": "30 mins nourishing herbal hair ritual.", "bs_card3_f4": "Experience the complete IKIGAI essence.",
+                "gal_sub": "Healing Sanctuary", "gal_title": "A Serene Corner in the Heart of the City", "gal_desc": "Every element at IKIGAI has been thoughtfully designed with warm earthy tones and gentle lighting to create an atmosphere of pure tranquility.", "gal_img1_title": "Welcome Lounge", "gal_img1_desc": "Savor aromatic herbal tea while you unwind.", "gal_img2_title": "Private Treatment Room", "gal_img2_desc": "Your own sacred space for complete relaxation.", "gal_img3_title": "Herbal Hair Ritual", "gal_img3_desc": "Zen meditation music fills the air.", "gal_img4_title": "Foot Therapy Zone", "gal_img4_desc": "Intimate corner for foot treatments.", "gal_img5_title": "Professional Nail Studio", "gal_img5_desc": "Premium imported gel collections.", "gal_img6_title": "Natural Ingredients", "gal_img6_desc": "100% safe organic herbs and oils.",
+                "blog_sub": "Wellness Guide", "blog_title": "Health, Beauty & Self-Care", "blog_desc": "Expert insights on professional body care and traditional wellness secrets from our IKIGAI specialists.", "cat_spa": "Spa Tips", "cat_health": "Health", "cat_beauty": "Beauty", "cat_tips": "Wellness", "post_date1": "<i>📅</i> March 13, 2026", "post_date2": "<i>📅</i> March 10, 2026", "post_date3": "<i>📅</i> March 05, 2026", "post_date4": "<i>📅</i> March 01, 2026", "post_author": "<i>👤</i> By IKIGAI Team",
+                "post1_title": "Top 5 Life-Changing Reasons for Hot Stone Massage", "post1_excerpt": "Beyond relaxation, Hot Stone therapy brings profound health benefits that transform your entire wellness journey...", "post2_title": "Office Workers: Science-Backed Neck & Shoulder Relief", "post3_title": "The Secret Difference: Nourishing vs. Regular Shampoo", "post4_title": "7 Surprising Health Benefits of Herbal Foot Soaking",
+                "book_title": "Start Relaxation", "book_desc": "Leave your info, we will contact you.", "book_hotline_text": "Hotline", "book_address_text": "Address", "book_address": "170 Tran Phu, Phuoc Ninh, Hai Chau, Da Nang", "book_offer_title": "🌟 OFFERS", "book_offer_desc": "Book online for VIP priority. Tips included.",
+                "form_title": "BOOKING INFO", "form_name": "Full Name (*)", "form_phone": "Phone/WhatsApp (*)", "form_email": "Your Email (*)", "form_guests": "Guests", "form_service": "Service", "form_srv_opt0": "-- Select --", "form_srv_opt1": "Hot Stone", "form_srv_opt2": "Thai & Oil", "form_srv_opt3": "VIP Combo", "form_srv_opt4": "Shampoo", "form_srv_opt5": "Nail/Heel", "form_srv_opt6": "Need advice", "form_date": "Date", "form_time": "Time", "form_btn_submit": "CONFIRM BOOKING",
+                "footer_desc": "Experience 5-star therapeutic wellness in the heart of Da Nang. Transparent pricing with gratuity included.", "footer_explore": "Discover", "footer_link1": "About IKIGAI", "footer_link2": "Our Services", "footer_link3": "Price List", "footer_link4": "Best Sellers", "footer_link5": "Wellness Guide", "footer_contact": "Get In Touch", "footer_address": "170 Tran Phu, Phuoc Ninh, Hai Chau, Da Nang", "footer_hotline_sub": "(24/7 Support)", "footer_open_title": "Hours:", "footer_open_time": "09:00 - 23:00 (Daily)", "footer_map": "📍 Our Location - IKIGAI SPA CENTER", "footer_copyright": "© 2026 IKIGAI Spa Center. All Rights Reserved."
+            },
+            ko: {
+                "top_address": "다낭 푸옥 닌, 하이 카우 짜우, 쩐푸 170", "top_time": "영업시간: 09:00 - 23:00",
+                "nav_home": "홈", "nav_story": "이야기", "nav_services": "서비스", "nav_menu": "메뉴", "nav_blog": "블로그", "btn_booking": "예약하기", "btn_explore": "메뉴 보기", "btn_read_more": "더 읽기", "btn_book_now": "예약하기",
+                "hero_title": "심신 치유의 예술", "hero_desc": "5성급 기준으로 설계된 IKIGAI 스파 센터는 고요한 휴식 공간을 제공합니다.", "hero_feature1": "핫스톤 마사지", "hero_feature2": "타이 스트레칭", "hero_feature3": "영양 샴푸 & 스킨케어", "hero_feature4": "100% 팁 포함",
+                "story_sub": "삶의 철학", "story_title": "삶의 이유를 찾는 여정", "story_quote": "\"일본 문화에서 이키가이는 '아침에 깨어날 때 마다 자신이 살아가는 이유를 안다'는 뜻입니다. 그것은 당신의 열정, 소명, 그리고 세상에 주는 가치의 완벽한 조화입니다.\"", "story_p1": "분주한 다낭의 중심부에 평화로운 쉼터를 만들고자 하는 비전으로 탄생한 IKIGAI 스파 센터는 단순한 마사지 제공처가 아닙니다. 우리는 몸과 영혼을 모두 되살리는 완전한 치유의 의식을 만들어냅니다.", "story_p2": "도시의 중심지(쩐푸 170번지)에 위치한 IKIGAI는 분홍색 교회에서 몇 발떨어지지 않은 곳에 자리 잡고 있습니다. IKIGAI의 문을 열고 들어가는 순간, 도시의 소음을 뒤로하고 향긋한 약초향이 당신을 감싸 안습니다.", "video_sub": "영상 여행", "video_title": "영상으로 느껴보는 IKIGAI",
+                "grid_sub": "서비스", "grid_title": "IKIGAI 테라피", "grid_desc": "치료 마사지부터 샴푸까지.", "srv_box_1": "핫스톤 발", "srv_box_2": "핫스톤 전신", "srv_box_3": "타이 마사지", "srv_box_4": "타이 & 오일", "srv_box_5": "임산부", "srv_box_6": "포핸드", "srv_box_7": "목어깨", "srv_box_8": "부항", "srv_box_9": "샴푸", "srv_box_10": "샴푸콤보", "srv_box_11": "귀청소", "srv_box_12": "발스크럽", "srv_box_13": "VIP", "srv_box_14": "네일", "srv_box_15": "발관리", "srv_box_16": "페이셜",
+                "menu_sub": "메뉴", "menu_title": "스파 메뉴", "menu_desc": "투명한 가격, 팁 포함.", "tab_massage": "마사지", "tab_combo": "콤보", "tab_nail": "네일", "tab_shampoo": "샴푸", "menu_tips": "팁 포함", "th_type": "종류", "th_duration": "시간", "th_price": "가격", "th_price_oil": "가격(오일)", "th_price_cream": "가격(크림)", "th_hand_foot": "손/발", "th_hand_and_foot": "손&발",
+                "m_hot_stone_foot": "핫스톤 발", "m_hot_stone_body": "핫스톤 전신", "m_thai": "타이", "m_thai_oil": "타이오일", "m_prenatal": "임산부", "m_four_hands": "포핸드", "m_back_shoulder": "등어깨", "m_cupping": "부항", "m_combo_hs_hw_60": "스톤60+샴푸30", "m_combo_hs_hw_90": "스톤90+샴푸30", "m_combo_hs_hw_120": "스톤120+샴푸30", "c_full": "VIP콤보", "c_full_desc": "풀케어...", "c_full_face": "VIP+얼굴", "c_full_face_back": "VIP+얼굴+등", "c_full_face_back_heel": "VIP+얼굴+등+발", "c_note_facial": "얼굴 제외 가능.",
+                "n_cut_cuticles": "기본케어", "n_gel_polish": "젤네일", "n_gel_removal": "젤제거", "n_fake_nails": "연장", "n_nails_cut_gel": "케어+젤", "n_gel_nail_art": "젤아트", "n_level_up": "파츠/스와", "n_kid_nail": "키즈", "n_kid_nail_level": "키즈아트", "n_heel_scrub": "발각질", "n_nail_care_combo": "네일+발", "n_foot_30_nail": "발30+네일", "n_foot_60_nail": "발60+네일", "n_foot_90_nail": "발90+네일",
+                "s_vietnam": "샴푸", "s_shampoo_head": "샴푸+두피", "s_combo_shampoo": "샴푸콤보", "s_facial": "얼굴마사지", "s_facial_treatment": "얼굴케어", "s_facial_head": "얼굴+두피", "s_ear_mini": "귀청소", "s_ear_shaving": "귀+면도", "s_heel": "발각질", "s_combo_foot_heel": "발+각질", "s_combo_foot_shampoo": "발+샴푸", "s_combo_foot_ear": "발+귀", "s_combo_foot_facial": "발+얼굴", "s_combo_shampoo_facial": "샴푸+얼굴",
+                "bs_sub": "베스트", "bs_title": "인기 서비스", "bs_desc": "최고의 선택.", "bs_badge": "★ 베스트셀러 ★", "bs_tip_included": "팁 포함", "bs_card1_title": "핫스톤 바디", "bs_card1_time": "90분", "bs_card1_usd": "($21)", "bs_card1_f1": "근육 이완", "bs_card1_f2": "화산석", "bs_card1_f3": "오일", "bs_card1_f4": "숙면", "bs_card2_title": "타이 & 오일", "bs_card2_time": "90분", "bs_card2_usd": "($23)", "bs_card2_f1": "완벽한 조화", "bs_card2_f2": "스트레칭", "bs_card2_f3": "부드러운 오일", "bs_card2_f4": "에너지 회복", "bs_card3_title": "스톤 & 샴푸", "bs_card3_time": "120분", "bs_card3_usd": "($23)", "bs_card3_f1": "가성비", "bs_card3_f2": "90분 스톤", "bs_card3_f3": "30분 샴푸", "bs_card3_f4": "시간절약",
+                "gal_sub": "공간", "gal_title": "고요한 코너", "gal_desc": "따뜻한 허브향.", "gal_img1_title": "리셉션", "gal_img1_desc": "허브티.", "gal_img2_title": "프라이빗룸", "gal_img2_desc": "휴식.", "gal_img3_title": "샴푸실", "gal_img3_desc": "명상.", "gal_img4_title": "발관리", "gal_img4_desc": "아늑함.", "gal_img5_title": "네일", "gal_img5_desc": "프리미엄.", "gal_img6_title": "허브", "gal_img6_desc": "유기농.",
+                "blog_sub": "팁", "blog_title": "뷰티 가이드", "blog_desc": "전문가의 팁.", "cat_spa": "스파", "cat_health": "건강", "cat_beauty": "뷰티", "cat_tips": "팁", "post_date1": "3월 13일", "post_date2": "3월 10일", "post_date3": "3월 5일", "post_date4": "3월 1일", "post_author": "IKIGAI", "post1_title": "핫스톤 마사지 이유", "post1_excerpt": "건강에 좋습니다...", "post2_title": "어깨 통증 완화", "post3_title": "영양 샴푸 차이점", "post4_title": "허브 족욕 장점",
+                "book_title": "예약하기", "book_desc": "정보를 남겨주세요.", "book_hotline_text": "예약전화", "book_address_text": "주소", "book_address": "다낭 푸옥 닌, 하이 카우, 쩐푸 170", "book_offer_title": "🌟 혜택", "book_offer_desc": "VIP룸 우선배정, 팁 포함.", "form_title": "예약 정보", "form_name": "이름 (*)", "form_phone": "전화/카톡 (*)", "form_email": "이메일 (*)", "form_guests": "인원", "form_service": "서비스", "form_srv_opt0": "-- 선택 --", "form_srv_opt1": "핫스톤", "form_srv_opt2": "타이오일", "form_srv_opt3": "VIP", "form_srv_opt4": "샴푸", "form_srv_opt5": "네일", "form_srv_opt6": "상담요청", "form_date": "날짜", "form_time": "시간", "form_btn_submit": "예약 확인",
+                "footer_desc": "다낭 5성급 스파. 팁 포함.", "footer_explore": "탐색", "footer_link1": "소개", "footer_link2": "서비스", "footer_link3": "가격", "footer_link4": "인기", "footer_link5": "가이드", "footer_contact": "연락처", "footer_address": "다낭 푸옥 닌, 하이 카우, 쩐푸 170", "footer_hotline_sub": "(24시간)", "footer_open_title": "시간:", "footer_open_time": "09:00 - 23:00", "footer_map": "📍 지도 - IKIGAI SPA CENTER", "footer_copyright": "© 2026 IKIGAI Spa. All Rights Reserved."
+            },
+            ja: {
+                "top_address": "ダナン市プオック・ニン、ハイ・チャウ、チャンフー170", "top_time": "09:00 - 23:00", "nav_home": "ホーム", "nav_story": "物語", "nav_services": "サービス", "nav_menu": "メニュー", "nav_blog": "ブログ", "btn_booking": "予約", "btn_explore": "メニュー", "btn_read_more": "読む", "btn_book_now": "予約",
+                "hero_title": "心と体の癒し", "hero_desc": "ダナン中心部の5つ星スパ。", "hero_feature1": "ホットストーン", "hero_feature2": "タイ式", "hero_feature3": "シャンプー", "hero_feature4": "チップ込み", "hero_img1_label": "ストーン", "hero_img2_label": "タイ式", "hero_img3_label": "ハーブ", "story_sub": "哲学", "story_title": "生きがい", "story_quote": "「生きがい...」", "story_p1": "賑やかなダナンの中心部に、安らぎの空間を創り出したいという願いから生まれたIKIGAIスパセンターは、単なるマッサージトリートメントにとどまりません。私たちは、心身を癒す総合的な「儀式」を提供します。", "story_p2": "市内中心部（トランフー通り170番地）という絶好のロケーションに位置し、チキン教会からほんの数歩、活気あふれるハン市場からもほど近いIKIGAIは、一歩足を踏み入れた瞬間からあなたをお待ちしています。ハーブの香りが漂う空間、心地よい瞑想音楽、そして熟練のセラピストたちが、あなたを心安らぐひとときへと誘います。", "video_sub": "映像", "video_title": "映像で感じる",
+                "grid_sub": "サービス", "grid_title": "IKIGAIの真髄", "grid_desc": "至福のメニュー。", "srv_box_1": "ストーン足", "srv_box_2": "ストーン全身", "srv_box_3": "タイ", "srv_box_4": "タイ&オイル", "srv_box_5": "妊婦", "srv_box_6": "4ハンド", "srv_box_7": "首肩背中", "srv_box_8": "カッピング", "srv_box_9": "シャンプー", "srv_box_10": "シャンプー顔", "srv_box_11": "耳かき", "srv_box_12": "かかと", "srv_box_13": "VIP", "srv_box_14": "ネイル", "srv_box_15": "足ケア", "srv_box_16": "顔",
+                "menu_sub": "料金", "menu_title": "メニュー", "menu_desc": "明朗会計、チップ込み", "tab_massage": "マッサージ", "tab_combo": "コンボ", "tab_nail": "ネイル", "tab_shampoo": "シャンプー", "menu_tips": "チップ込み", "th_type": "種類", "th_duration": "時間", "th_price": "料金", "th_price_oil": "料金(オイル)", "th_price_cream": "料金(クリーム)", "th_hand_foot": "手/足", "th_hand_and_foot": "手&足", "m_hot_stone_foot": "足", "m_hot_stone_body": "全身", "m_thai": "タイ", "m_thai_oil": "タイオイル", "m_prenatal": "マタニティ", "m_four_hands": "4ハンド", "m_back_shoulder": "背中", "m_cupping": "カッピング", "m_combo_hs_hw_60": "ストーン+シャンプー", "m_combo_hs_hw_90": "ストーン+シャンプー", "m_combo_hs_hw_120": "ストーン+シャンプー", "c_full": "VIP", "c_full_desc": "フル", "c_full_face": "VIP+顔", "c_full_face_back": "VIP+背中", "c_full_face_back_heel": "VIP+かかと", "c_note_facial": "顔不要可", "n_cut_cuticles": "ケア", "n_gel_polish": "ジェル", "n_gel_removal": "オフ", "n_fake_nails": "延長", "n_nails_cut_gel": "ケアジェル", "n_gel_nail_art": "アート", "n_level_up": "スワロ", "n_kid_nail": "キッズ", "n_kid_nail_level": "キッズアート", "n_heel_scrub": "角質", "n_nail_care_combo": "ネイル足", "n_foot_30_nail": "足+ネイル", "n_foot_60_nail": "足+ネイル", "n_foot_90_nail": "足+ネイル", "s_vietnam": "シャンプー", "s_shampoo_head": "シャンプー頭", "s_combo_shampoo": "シャンプー手", "s_facial": "顔", "s_facial_treatment": "顔ケア", "s_facial_head": "顔頭", "s_ear_mini": "耳かき", "s_ear_shaving": "耳かき顔", "s_heel": "かかと", "s_combo_foot_heel": "足かかと", "s_combo_foot_shampoo": "足シャンプー", "s_combo_foot_ear": "足耳かき", "s_combo_foot_facial": "足顔", "s_combo_shampoo_facial": "シャンプー顔",
+                "bs_sub": "人気", "bs_title": "おすすめ", "bs_desc": "最高です。", "bs_badge": "★ 人気 ★", "bs_tip_included": "チップ込", "bs_card1_title": "ストーン", "bs_card1_time": "90分", "bs_card1_usd": "($21)", "bs_card1_f1": "リラックス", "bs_card1_f2": "火山石", "bs_card1_f3": "オイル", "bs_card1_f4": "快眠", "bs_card2_title": "タイオイル", "bs_card2_time": "90分", "bs_card2_usd": "($23)", "bs_card2_f1": "完璧", "bs_card2_f2": "ストレッチ", "bs_card2_f3": "オイル", "bs_card2_f4": "回復", "bs_card3_title": "ストーン&シャンプー", "bs_card3_time": "120分", "bs_card3_usd": "($23)", "bs_card3_f1": "お得", "bs_card3_f2": "90分", "bs_card3_f3": "30分", "bs_card3_f4": "最高",
+                "gal_sub": "空間", "gal_title": "静かな場所", "gal_desc": "ハーブの香り。", "gal_img1_title": "受付", "gal_img1_desc": "お茶", "gal_img2_title": "個室", "gal_img2_desc": "静か", "gal_img3_title": "シャンプー", "gal_img3_desc": "音楽", "gal_img4_title": "足", "gal_img4_desc": "休息", "gal_img5_title": "ネイル", "gal_img5_desc": "ジェル", "gal_img6_title": "ハーブ", "gal_img6_desc": "安全",
+                "blog_sub": "ブログ", "blog_title": "美容", "blog_desc": "秘密", "cat_spa": "スパ", "cat_health": "健康", "cat_beauty": "美容", "cat_tips": "ヒント", "post_date1": "3月13日", "post_date2": "3月10日", "post_date3": "3月5日", "post_date4": "3月1日", "post_author": "IKIGAI", "post1_title": "ストーンの理由", "post1_excerpt": "良いです", "post2_title": "肩こり", "post3_title": "シャンプー", "post4_title": "足湯",
+                "book_title": "予約", "book_desc": "連絡します", "book_hotline_text": "電話", "book_address_text": "住所", "book_address": "ダナン市プオック・ニン、ハイ・チャウ、チャンフー170", "book_offer_title": "🌟 特典", "book_offer_desc": "VIPルーム", "form_title": "予約情報", "form_name": "名前 (*)", "form_phone": "電話 (*)", "form_email": "メール (*)", "form_guests": "人数", "form_service": "サービス", "form_srv_opt0": "-- 選択 --", "form_srv_opt1": "ストーン", "form_srv_opt2": "タイ", "form_srv_opt3": "VIP", "form_srv_opt4": "シャンプー", "form_srv_opt5": "ネイル", "form_srv_opt6": "相談", "form_date": "日", "form_time": "時間", "form_btn_submit": "予約確定",
+                "footer_desc": "ダナン5つ星。チップ込。", "footer_explore": "探索", "footer_link1": "紹介", "footer_link2": "サービス", "footer_link3": "料金", "footer_link4": "人気", "footer_link5": "ガイド", "footer_contact": "連絡先", "footer_address": "ダナン市プオック・ニン、ハイ・チャウ、チャンフー170", "footer_hotline_sub": "(24時間)", "footer_open_title": "時間:", "footer_open_time": "09:00 - 23:00", "footer_map": "📍 地図 - IKIGAI SPA CENTER", "footer_copyright": "© 2026 IKIGAI Spa. All Rights Reserved."
+            },
+            ch: {
+                "top_address": "岘港市福新、海州、陈富街170号", "top_time": "09:00 - 23:00", "nav_home": "首页", "nav_story": "故事", "nav_services": "服务", "nav_menu": "价格", "nav_blog": "博客", "btn_booking": "预约", "btn_explore": "菜单", "btn_read_more": "阅读", "btn_book_now": "预约",
+                "hero_title": "身心疗愈", "hero_desc": "五星级宁静放松空间。", "hero_feature1": "热石按摩", "hero_feature2": "泰式拉伸", "hero_feature3": "营养洗发", "hero_feature4": "100%含小费", "hero_img1_label": "热石", "hero_img2_label": "泰式", "hero_img3_label": "草本", "story_sub": "哲学", "story_title": "生活意义", "story_quote": "“在日本文化中，Ikigai 的意思是：每天早上醒来，你都知道自己为何而活。它是激情、使命和价值观的完美交汇点。”", "story_p1": "IKIGAI水疗中心诞生于在繁华的岘港市中心打造一片宁静绿洲的愿景，提供的不仅仅是按摩理疗。我们创造的是一种整体疗愈的“仪式”。", "story_p2": "IKIGAI地理位置优越，坐落于市中心（陈富街170号），距离鸡教堂仅几步之遥，毗邻熙熙攘攘的韩市，恭候您的光临。这里弥漫着草药的芬芳，播放着舒缓的冥想音乐，更有技艺精湛的理疗师为您服务。", "video_sub": "视频", "video_title": "感受IKIGAI",
+                "grid_sub": "服务", "grid_title": "理疗精髓", "grid_desc": "最精致的服务。", "srv_box_1": "热石足部", "srv_box_2": "热石全身", "srv_box_3": "泰式", "srv_box_4": "泰式精油", "srv_box_5": "孕妇", "srv_box_6": "四手", "srv_box_7": "肩颈", "srv_box_8": "拔罐", "srv_box_9": "洗发", "srv_box_10": "洗发面部", "srv_box_11": "采耳", "srv_box_12": "磨脚", "srv_box_13": "VIP", "srv_box_14": "美甲", "srv_box_15": "足部", "srv_box_16": "面部",
+                "menu_sub": "价格", "menu_title": "水疗菜单", "menu_desc": "价格透明，含小费。", "tab_massage": "按摩", "tab_combo": "组合", "tab_nail": "美甲", "tab_shampoo": "洗发", "menu_tips": "含小费", "th_type": "服务", "th_duration": "时长", "th_price": "价格", "th_price_oil": "价格(精油)", "th_price_cream": "价格(乳霜)", "th_hand_foot": "手/足", "th_hand_and_foot": "手足", "m_hot_stone_foot": "足", "m_hot_stone_body": "全身", "m_thai": "泰式", "m_thai_oil": "泰式精油", "m_prenatal": "孕妇", "m_four_hands": "四手", "m_back_shoulder": "肩背", "m_cupping": "拔罐", "m_combo_hs_hw_60": "热石+洗发", "m_combo_hs_hw_90": "热石+洗发", "m_combo_hs_hw_120": "热石+洗发", "c_full": "VIP", "c_full_desc": "全套", "c_full_face": "VIP+面", "c_full_face_back": "VIP+面+背", "c_full_face_back_heel": "VIP+面+背+脚", "c_note_facial": "可取消面部", "n_cut_cuticles": "死皮", "n_gel_polish": "凝胶", "n_gel_removal": "卸甲", "n_fake_nails": "假指甲", "n_nails_cut_gel": "剪甲+凝胶", "n_gel_nail_art": "美甲艺术", "n_level_up": "水钻", "n_kid_nail": "儿童", "n_kid_nail_level": "儿童艺术", "n_heel_scrub": "磨脚", "n_nail_care_combo": "美甲+足", "n_foot_30_nail": "足+美甲", "n_foot_60_nail": "足+美甲", "n_foot_90_nail": "足+美甲", "s_vietnam": "洗发", "s_shampoo_head": "洗发头", "s_combo_shampoo": "洗发手", "s_facial": "面部", "s_facial_treatment": "面部理疗", "s_facial_head": "面部头", "s_ear_mini": "采耳", "s_ear_shaving": "采耳面", "s_heel": "磨脚", "s_combo_foot_heel": "足磨脚", "s_combo_foot_shampoo": "足洗发", "s_combo_foot_ear": "足采耳", "s_combo_foot_facial": "足面部", "s_combo_shampoo_facial": "洗发面部",
+                "bs_sub": "最佳", "bs_title": "最受欢迎", "bs_desc": "标志性疗程。", "bs_badge": "★ 畅销 ★", "bs_tip_included": "含小费", "bs_card1_title": "热石按摩", "bs_card1_time": "90分", "bs_card1_usd": "($21)", "bs_card1_f1": "缓解紧张", "bs_card1_f2": "火山石", "bs_card1_f3": "精油", "bs_card1_f4": "深睡", "bs_card2_title": "泰式精油", "bs_card2_time": "90分", "bs_card2_usd": "($23)", "bs_card2_f1": "完美", "bs_card2_f2": "拉伸", "bs_card2_f3": "精油", "bs_card2_f4": "恢复", "bs_card3_title": "热石&洗发", "bs_card3_time": "120分", "bs_card3_usd": "($23)", "bs_card3_f1": "超值", "bs_card3_f2": "90分", "bs_card3_f3": "30分", "bs_card3_f4": "体验",
+                "gal_sub": "空间", "gal_title": "宁静角落", "gal_desc": "草本香气。", "gal_img1_title": "接待", "gal_img1_desc": "茶", "gal_img2_title": "理疗室", "gal_img2_desc": "隐私", "gal_img3_title": "洗发", "gal_img3_desc": "音乐", "gal_img4_title": "足部", "gal_img4_desc": "舒适", "gal_img5_title": "美甲", "gal_img5_desc": "凝胶", "gal_img6_title": "原料", "gal_img6_desc": "安全",
+                "blog_sub": "博客", "blog_title": "健康指南", "blog_desc": "秘诀。", "cat_spa": "水疗", "cat_health": "健康", "cat_beauty": "美容", "cat_tips": "贴士", "post_date1": "3月13日", "post_date2": "3月10日", "post_date3": "3月5日", "post_date4": "3月1日", "post_author": "IKIGAI", "post1_title": "热石理由", "post1_excerpt": "益处...", "post2_title": "肩颈缓解", "post3_title": "营养洗发", "post4_title": "草药泡脚",
+                "book_title": "预约", "book_desc": "联系您", "book_hotline_text": "热线", "book_address_text": "地址", "book_address": "岘港市福新、海州、陈富街170号", "book_offer_title": "🌟 优惠", "book_offer_desc": "VIP房间", "form_title": "填写信息", "form_name": "姓名 (*)", "form_phone": "电话 (*)", "form_email": "邮箱 (*)", "form_guests": "人数", "form_service": "服务", "form_srv_opt0": "-- 选择 --", "form_srv_opt1": "热石", "form_srv_opt2": "泰式", "form_srv_opt3": "VIP", "form_srv_opt4": "洗发", "form_srv_opt5": "美甲", "form_srv_opt6": "咨询", "form_date": "日期", "form_time": "时间", "form_btn_submit": "确认预约",
+                "footer_desc": "岘港五星级。含小费。", "footer_explore": "探索", "footer_link1": "关于", "footer_link2": "服务", "footer_link3": "价格", "footer_link4": "热门", "footer_link5": "指南", "footer_contact": "联系", "footer_address": "岘港市福新、海州、陈富街170号", "footer_hotline_sub": "(24小时)", "footer_open_title": "时间:", "footer_open_time": "09:00 - 23:00", "footer_map": "📍 导航 - IKIGAI SPA CENTER", "footer_copyright": "© 2026 IKIGAI Spa. All Rights Reserved."
+            }
+        };
+
+        // Hàm Đổi Ngôn Ngữ
+        function setLanguage(lang) {
+            console.log('Language changed to:', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+            });
+        }
+        
+        // Attach event listeners to language buttons
+        const langButtons = document.querySelectorAll('.lang-btn');
+        console.log('Found language buttons:', langButtons.length);
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // Initialize default language to English
+        setLanguage('en');
+
+        // ==========================================
+        // B. SCROLL & TAB & SLIDER LOGIC
+        // ==========================================
+        // Cuộn mượt
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        function scrollToBooking() { document.getElementById('booking').scrollIntoView({ behavior: 'smooth' }); }
+
+        // Tabs Menu
+        function openTab(evt, tabName) {
+            let tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) tabcontent[i].classList.remove("active");
+            let tablinks = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tablinks.length; i++) tablinks[i].classList.remove("active");
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Slider
+        function scrollGallery(direction) {
+            const track = document.getElementById('ikigaiGallery');
+            if(!track) return;
+            const slide = track.querySelector('.gallery-slide');
+            if(slide) track.scrollBy({ left: direction * (slide.clientWidth + 30), behavior: 'smooth' });
+        }
+
+        // ==========================================
+        // C. BLOG MODAL POPUP LOGIC
+        // ==========================================
+        const blogData = {
+            'post1': { img: 'images/img28.png', title: 'Top 5 Lý Do Trải Nghiệm Massage Đá Nóng', text: '<p>Massage đá nóng giúp đả thông kinh lạc, giảm căng cơ sâu. Nhiệt lượng từ đá núi lửa thẩm thấu vào mô cơ, giãn mao mạch, xoa dịu đau nhức. Hơn nữa, nó giúp đào thải độc tố và mang lại giấc ngủ sâu.</p>' },
+            'post2': { img: 'images/img29.png', title: 'Giảm Đau Cổ Vai Gáy Cho Dân Văn Phòng', text: '<p>Đừng ngồi yên quá 60 phút, hãy vận động nhẹ nhàng. Điều chỉnh màn hình máy tính ngang tầm mắt. Quan trọng nhất, hãy sử dụng liệu pháp Massage Cổ Vai Gáy tại IKIGAI để giải nén các điểm tắc nghẽn cơ.</p>' },
+            'post3': { img: 'images/img30.png', title: 'Gội Đầu Dưỡng Sinh Khác Gì Gội Thường?', text: '<p>Chúng tôi sử dụng nước gội thảo mộc nấu thủ công (bồ kết, sả, vỏ bưởi) thay vì hóa chất. Kết hợp kỹ thuật massage bấm huyệt vùng đầu, mặt, cổ, giúp tăng lưu thông máu lên não và cải thiện trí nhớ.</p>' },
+            'post4': { img: 'images/img31.png', title: '7 Lợi Ích Của Ngâm Chân Thảo Mộc', text: '<p>Bàn chân là trái tim thứ 2. Ngâm chân nước ấm giúp đả thông kinh mạch, làm ấm cơ thể, giảm mùi hôi. Kết hợp dịch vụ chà gót tại IKIGAI, bạn sẽ lấy lại đôi gót sen mềm mại sau chuỗi ngày đi bộ mệt mỏi.</p>' }
+        };
+        const modal = document.getElementById('newsModal');
+        function openModal(postId) {
+            const post = blogData[postId];
+            if (post) {
+                document.getElementById('modalImg').src = post.img;
+                document.getElementById('modalTitle').innerHTML = post.title;
+                document.getElementById('modalDate').innerHTML = `<i>📅</i> 2026`;
+                document.getElementById('modalText').innerHTML = post.text;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+        // ==========================================
+        // D. EMAILJS - GỬI EMAIL 2 CHIỀU TỰ ĐỘNG
+        // ==========================================
+        const bookingForm = document.getElementById('ikigaiBookingForm');
+        if(bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                
+                const btnSubmit = this.querySelector('.btn-submit-booking');
+                const originalText = btnSubmit.innerHTML;
+                btnSubmit.innerHTML = "ĐANG XỬ LÝ... / SENDING...";
+                btnSubmit.style.opacity = "0.7";
+                btnSubmit.style.pointerEvents = "none";
+
+                const templateParams = {
+                    cusName: document.getElementById('cusName').value,
+                    cusPhone: document.getElementById('cusPhone').value,
+                    cusEmail: document.getElementById('cusEmail').value,
+                    cusGuest: document.getElementById('cusGuest').value,
+                    cusService: document.getElementById('cusService').options[document.getElementById('cusService').selectedIndex].text,
+                    cusDate: document.getElementById('cusDate').value,
+                    cusTime: document.getElementById('cusTime').value
+                };
+
+                // THAY BẰNG SERVICE_ID VÀ TEMPLATE_ID THẬT CỦA BẠN
+                emailjs.send('service_8i7lwmb', 'template_v2yy0yp', templateParams)
+                    .then(function() {
+                        alert(`Cảm ơn ${templateParams.cusName}! Thông tin đặt lịch đã được ghi nhận. Hệ thống vừa gửi một email xác nhận đến ${templateParams.cusEmail}. Lễ tân IKIGAI sẽ liên hệ lại ngay!`);
+                        bookingForm.reset();
+                        btnSubmit.innerHTML = originalText;
+                        btnSubmit.style.opacity = "1";
+                        btnSubmit.style.pointerEvents = "auto";
+                    }, function(error) {
+                        alert("Hệ thống Email đang bảo trì. Vui lòng gọi Hotline 0784 170 170 để đặt lịch trực tiếp.");
+                        console.log('Lỗi EmailJS:', error);
+                        btnSubmit.innerHTML = originalText;
+                        btnSubmit.style.opacity = "1";
+                        btnSubmit.style.pointerEvents = "auto";
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+
+ 
